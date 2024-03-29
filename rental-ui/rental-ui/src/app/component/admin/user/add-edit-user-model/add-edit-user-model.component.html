@@ -1,0 +1,75 @@
+<div class="model-width-4">
+  @if(isEdit) {
+  <h2 mat-dialog-title class="has-close-icon mat-dialog-header">
+    Edit User
+  </h2>
+  } @else {
+  <h2 mat-dialog-title class="has-close-icon mat-dialog-header">
+    Add New User
+  </h2>
+  }
+
+  <mat-dialog-content class="mat-typography-dialog" [formGroup]="form">
+    <div class="row p-2">
+      <mat-card>
+        <mat-card-content [formGroup]="form">
+          <div class="row">
+            <div class="col-sm-2 col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Enter the First Name" type="text" formControlName="firstName"
+                  autocomplete="off" #firstName>
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-2 col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Enter the Last Name" type="text" formControlName="lastName"
+                  autocomplete="off" #lastName>
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-2 col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="Enter the Email" type="email" formControlName="email" autocomplete="off"
+                  #email>
+              </mat-form-field>
+            </div>
+
+
+            <div class="col-sm-2 col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>User Type</mat-label>
+                <mat-select formControlName="userType">
+                  @for (usertype of userTypes; track usertype) {
+                  <mat-option [value]="usertype">{{usertype | removeSpecialChar | titlecase }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+
+            <div class="col-sm-2 col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                  @for (s of status; track s) {
+                  <mat-option [value]="s">{{s | titlecase }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+
+        <app-add-edit-address #addressComponenet></app-add-edit-address>
+      </mat-card>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" class="mt-2 mb-2 mat-dialog-action-footer">
+    <button mat-flat-button color="basic" mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="accent" [disabled]="!form.valid" (click)="submit()">Submit</button>
+  </mat-dialog-actions>
+</div>

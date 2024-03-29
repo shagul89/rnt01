@@ -1,0 +1,36 @@
+.main-content {
+  height: 90vh;
+  padding: 1px;
+  background: #fff;
+}
+
+.page {
+  color: white;
+  padding: 0 1rem;
+
+  .box {
+    min-height: 85px;
+    background: #ec407a;
+    margin: 0px -1rem;
+    font-size: 25px;
+    border-bottom-right-radius: 10px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    margin-top: 0em !important;
+  }
+
+  .content {
+    min-height: calc(100vh - 140px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+
+    .data {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

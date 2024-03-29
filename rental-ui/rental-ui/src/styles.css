@@ -1,0 +1,93 @@
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('@angular/material/prebuilt-themes/deeppurple-amber.css');
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("./assets/css/rental.css");
+@import 'ngx-toastr/toastr';
+@import url('../node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css');
+
+html, body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.sub-container {
+    margin: 8px;
+    background: #fff;
+    max-height: 100vh;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+}
+
+.mat-mdc-form-field, mat-label, mat-option, .mat-mdc-select-min-line {
+    font-size: 13px !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-accent {
+    background: #EC407A !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    border: 1px solid #b0b0b0 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-basic {
+    border: 1px solid #b0b0b0 !important;
+    background: #fdfdfd !important;
+    border-radius: 5px !important;
+    font-size: 13px !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+table {
+    width: 90%;
+    padding: 20px;
+}
+
+.mat-mdc-table thead, .mat-mdc-header-row {
+    background: #00AFA3 !important;
+    height: 25px !important;
+}
+
+.mat-sort-header-stem, .mat-sort-header-indicator {
+    color: white;
+}
+
+.mdc-data-table__row {
+    font-size: 13px !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-mdc-table .mat-mdc-header-cell {
+    color: #fff !important;
+    font-size: 13px !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-mdc-form-field{
+    width: 100%;
+}
+
+.mat-mdc-dialog-actions {
+    border-top: 1px solid #d6d6d6 !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+    border-bottom: 1px solid #d6d6d6;
+}
+
+mat-icon{
+    cursor: pointer;
+}
+
+
+
+

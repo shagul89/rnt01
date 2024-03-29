@@ -1,0 +1,13 @@
+<div>
+    @if (isLogin()) {
+    <app-side-nav></app-side-nav>
+    }
+</div>
+<div>
+    @if(!isLogin()){
+    <router-outlet></router-outlet>
+    }
+</div>
+
+
+<ngx-spinner type="ball-clip-rotate-multiple"></ngx-spinner>

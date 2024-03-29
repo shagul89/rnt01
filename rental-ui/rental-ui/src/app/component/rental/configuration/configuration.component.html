@@ -1,0 +1,70 @@
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Search</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+                    </mat-form-field>
+                </div>
+                <div class="col-8">
+                    <button mat-flat-button color="accent"  class="float-end m-2" (click)="addOrUpdateConfiguration('Add ', null)"><mat-icon>add</mat-icon>Add Configuration</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="table-container mat-elevation-z8">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="value">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Value </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.value}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="description">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="createdBy">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Created By </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.createdBy}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="createdDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.createdDate}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="updatedName">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Updated By </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.updatedName}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="updatedDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Updated Date </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.updatedDate}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <mat-icon (click)="addOrUpdateConfiguration('Edit ', row)">edit</mat-icon>
+                            <mat-icon style="color: red;" (click)="delete(row.configId)">delete</mat-icon>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" hidePageSize="true"></mat-paginator>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,36 @@
+<div class="model-width-4">
+  <h2 mat-dialog-title class="has-close-icon mat-dialog-header">
+    {{title}} Configuration
+  </h2>
+  <mat-dialog-content class="mat-typography-dialog" [formGroup]="form">
+    <div class="row mt-2">
+
+      <div class="col-sm-3 col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter the Name" type="text" formControlName="name" autocomplete="off" #name>
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-3 col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Value</mat-label>
+          <input matInput placeholder="Enter the Value" type="text" formControlName="value" autocomplete="off" #value>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-12">
+        <mat-form-field appearance="outline" class="h-60">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Enter the Description" formControlName="description" autocomplete="off"
+            #description></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" class="mt-2 mb-2 mat-dialog-action-footer">
+    <button mat-flat-button color="basic" mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="accent" [disabled]="!form.valid" (click)="submit()">Submit</button>
+  </mat-dialog-actions>
+</div>
