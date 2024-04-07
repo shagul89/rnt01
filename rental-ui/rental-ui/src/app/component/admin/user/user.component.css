@@ -1,0 +1,4 @@
+.mat-mdc-raised-button>.mat-icon {
+    height: inherit!important;
+    width: inherit!important;
+}
