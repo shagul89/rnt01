@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { AppSublevelMenuComponent } from './app-sublevel-menu/app-sublevel-menu.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
@@ -25,10 +26,12 @@ import { MainRoutingModule } from './menu-routes';
   ],
   declarations: [
     SideNavComponent,
+    AppSublevelMenuComponent,
     MainContentComponent
   ],
   exports: [
     SideNavComponent,
+    AppSublevelMenuComponent,
     MainContentComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

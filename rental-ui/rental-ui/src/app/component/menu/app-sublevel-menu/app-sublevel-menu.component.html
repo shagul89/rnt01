@@ -1,0 +1,9 @@
+<ul  class="sublevel-nav ng-trigger ng-trigger-submenu" *ngFor="let item of subMenu">
+    <li  class="sublevel-nav-item" >
+       <a  class="sublevel-nav-link" [href]="item.route">
+          <mat-icon class="small-icon">fiber_manual_record</mat-icon>
+          <span  class="sublevel-link-text ng-trigger ng-trigger-fadeInOut">{{item.displayName}}</span>
+          <mat-icon *ngIf="item.items && item.items.length > 0" class="menu-collapse-icon menu-collapse-icon-rtl " aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" ></mat-icon>
+       </a>
+       </li>
+</ul>
