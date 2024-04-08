@@ -23,12 +23,12 @@
                             <a routerlinkactive="active" class="sidenav-nav-link  " [href]="item.route">
                                 <mat-icon>{{item.icon}}</mat-icon>
                                 <span class="sidenav-link-text  ng-trigger ng-trigger-fadeInOut"> {{item.displayName}} </span>
-                                <mat-icon *ngIf="item.items.length > 0" class="menu-collapse-icon menu-collapse-icon-rtl " aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>
+                                <!--<mat-icon *ngIf="item.items.length > 0" class="menu-collapse-icon menu-collapse-icon-rtl " aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>-->
                             </a>
                             <div>
-                                <app-sublevel-menu  *ngIf="item.items.length > 0" [subMenu]="item.items">
+                                <!--<app-sublevel-menu  *ngIf="item.items.length > 0" [subMenu]="item.items">
 
-                                </app-sublevel-menu>
+                                </app-sublevel-menu>-->
                             </div>
                         </li>
 
