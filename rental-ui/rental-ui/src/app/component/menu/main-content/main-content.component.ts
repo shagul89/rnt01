@@ -11,5 +11,7 @@ export class MainContentComponent {
 
   constructor(){
   }
-
+  ngOninit(){
+    console.log("#########"+this.title);
+  }
 }

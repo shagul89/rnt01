@@ -1,9 +1,66 @@
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
+<div class="inventual-login-area flex justify-center items-center w-full min-h-screen h-full">
+  <div class="inventual-login-wrapper" [formGroup]="form">
+    <div class="inventual-login-logo text-center mb-12">
+      <img src="../../.././assets/logo/rental.png" alt="logo not found">
+    </div>
+
+    <div class="inventual-select-field mb-5">
+    <div class="inventual-input-field-style">
+      <mat-form-field class="w-full">
+        <input matInput placeholder="User Name" type="email" formControlName="userName" autocomplete="off" #userName>
+        @if (f.userName.hasError('required') && form.get('userName').touched &&
+        !form.valid) {
+        <mat-error>User Name is <strong>required</strong></mat-error>
+        }
+        @if (f.userName.hasError('email')) {
+        <mat-error>Please enter a valid email address</mat-error>
+        }
+      </mat-form-field>
+      
+    </div>
+    </div>
+
+    <div class="inventual-select-field mb-5">
+      <div class="inventual-input-field-style inventual-input-field-style-eye">
+        <mat-form-field class="mat-mdc-form-field-has-icon-suffix">
+          <input matInput placeholder="Password" type="password" formControlName="password" autocomplete="off"
+            #password>
+          @if (f.password.hasError('required') && form.get('password').touched &&
+          !form.valid) {
+          <mat-error>Password is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+      </div>
+
+      <div class="inventual-login-footer-forgot mb-5">
+        <a class="text-[16px] inline-block text-blue" href="/forgotpassword">Forgot Password?</a>
+      </div>
+
+      <div class="inventual-login-btn mb-7">
+        <div class="inventual-material-btn">
+          <button type="submit" mat-raised-button="" color="primary" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base" tabindex="0" (click)="signIn()">
+            <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
+            <span class="mdc-button__label">Log in</span>
+            <span class="mat-mdc-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+          </button>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+<!--<div class="container d-flex justify-content-center align-items-center min-vh-100">
 
   <div class="row border rounded-5 p-3 bg-white shadow box-area">
 
     <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-      style="background: #EC407A;">
+      style="background: #3f51b5;">
       <div class="featured-image mb-3">
 
       </div>
@@ -14,14 +71,16 @@
     </div>
 
 
-    <div class="col-md-6 right-box">
+    <div class="col-md-6 right-box rental-login-wrapper">
       <div class="row align-items-center" [formGroup]="form">
         <div class="header-text mb-4">
           <h2>Hello</h2>
           <p>We are happy to have you back.</p>
         </div>
-        <div class="input-group mb-3">
-          <mat-form-field appearance="outline">
+        <div class="inventual-select-field mb-5">
+        <div class="inventual-input-field-style">
+        <div class="">
+          <mat-form-field >
             <mat-label>User Name</mat-label>
             <input matInput placeholder="User Name" type="email" formControlName="userName" autocomplete="off"
               #userName>
@@ -34,6 +93,8 @@
             }
           </mat-form-field>
         </div>
+        </div>
+        </div>
         <div class="input-group mb-1">
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
@@ -45,7 +106,7 @@
             }
           </mat-form-field>
         </div>
-        <div class="input-group mb-5 d-flex justify-content-between">
+        <div class="input-group mb-3 d-flex justify-content-between">
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="formCheck">
             <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
@@ -54,13 +115,23 @@
             <small><a href="#">Forgot Password?</a></small>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <button mat-flat-button color="accent" class="w-100 fs-6" (click)="signIn()">Submit</button>
+
+        <div class="inventual-login-btn mb-3">
+          <div class="inventual-material-btn">
+            <button type="submit" (click)="signIn()" mat-raised-button="" color="primary" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base" tabindex="0">
+              <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
+              <span class="mdc-button__label">Log in</span>
+              <span class="mat-mdc-focus-indicator"></span>
+              <span class="mat-mdc-button-touch-target"></span>
+              <span class="mat-ripple mat-mdc-button-ripple"></span>
+            </button>
+          </div>
         </div>
+        
         <div class="row">
           <small>Don't have account? <a href="#">Sign Up</a></small>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div>-->

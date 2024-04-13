@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , HostListener } from '@angular/core';
 import { NavItem } from '../../model/nav-item';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from '../../auth/auth-service';
@@ -11,9 +11,65 @@ import { MenuService } from '../menu-service';
 })
 export class SideNavComponent {
 
-  menu: NavItem[] = [];
+  //menu: NavItem[] = [];
   activeMenu = {}  as any;
   options: any;
+  menuShortcutActive : boolean = false;
+  profileShortcutActive : boolean = false;
+  menuSidebarActive : boolean = false;
+  menu: NavItem[] =[{
+		route: "/dashboard",
+		icon:"home",
+		displayName: "Dashboard",
+    items:[]
+	}, {
+		route: "product",
+		displayName: "Products",
+		icon:"dvr",
+		items: []
+	}, {
+		route: "trading",
+		displayName: "Trading",
+		icon:"show_chart",
+		items: []
+	}, {
+		route: "expesne",
+		displayName: "Expense",
+		icon:"account_balance_wallet",
+		items: []
+	}, {
+		route: "people",
+		displayName: "People",
+		icon:"people_outline",
+		items: []
+	}, {
+		route: "/main/admin/user",
+		displayName: "User Management",
+		icon:"person_outline",
+		items: []
+	}, {
+		route: "report",
+		displayName: "Reports",
+		icon:"dashboard",
+		items: []
+	}, {
+		route: "transfer",
+		displayName: "Transfer",
+		icon:"swap_horiz",
+		items: []
+	}, {
+		route: "/warehouselist",
+		icon:"domain",
+		displayName: "Warehouse",
+    items:[]
+	}, {
+		route: "/rolepermission",
+		icon:"settings",
+		displayName: "Administrative Tools",
+    items:[]
+	}
+];
+
 
   constructor(private _formBuilder: FormBuilder, private menuService: MenuService, private authService: AuthService) {
     if (typeof window !== "undefined") {
@@ -62,6 +118,23 @@ export class SideNavComponent {
 
   logout(){
     this.authService.logout();
+  }
+
+  shortmenu(){
+    this.menuShortcutActive = !this.menuShortcutActive;
+  }
+
+  profilemenu(){
+    this.profileShortcutActive = !this.profileShortcutActive;
+  }
+
+  sidemenuToggle(){
+    this.menuSidebarActive = !this.menuSidebarActive;
+  }
+  @HostListener('document:click', ['$event'])
+  handleClick(event: MouseEvent) {
+    // Your click event handler logic here
+   
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+//import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../user-service';
@@ -26,12 +26,12 @@ export class AddEditUserModelComponent {
   userTypes = ['MANAGER', 'EMPLOYEE', 'CASHIER', 'ADMIN', 'SUPER_ADMIN'];
   status = ['ACTIVE', 'DEACTIVE'];
 
-  constructor(public dialog: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) data: any, private userService: UserService, private router: Router,
+  constructor( private userService: UserService, private router: Router,
      private toastr: ToastrService, private formBuilder: FormBuilder) {
-    if (data && data.user) {
+    /*if (data && data.user) {
       this.user = data.user;
       this.isEdit = true;
-    }
+    }*/
   }
 
   ngOnInit() {
@@ -91,7 +91,7 @@ export class AddEditUserModelComponent {
     this.userService.saveUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data created successfully");
-        this.dialog.close();
+        //this.dialog.close();
       },
       error: (error) => {
         this.toastr.error("User data failed to create");
@@ -103,7 +103,7 @@ export class AddEditUserModelComponent {
     this.userService.updateUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data updated successfully");
-        this.dialog.close();
+        //this.dialog.close();
       },
       error: (error) => {
         this.toastr.success("User data failed to update");

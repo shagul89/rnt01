@@ -1,0 +1,48 @@
+.sublevel-nav {
+    margin-inline-start: 0px;
+    list-style-type: none;
+    padding-inline-start: 1.25rem;
+  }
+  .sublevel-nav .sublevel-nav-item .sublevel-nav-link {
+    transition: all linear 0.3s;
+    width: calc(100% - 20px);
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    border-radius: 0.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(97 97 97 / var(--tw-text-opacity));
+    text-decoration-line: none;
+  }
+  .sublevel-nav .sublevel-nav-item .sublevel-nav-link .sublevel-link-icon {
+    margin: 0;
+    width: 1rem;
+    min-width: 16px;
+    text-align: start;
+    font-size: 4px;
+  }
+  .sublevel-nav .sublevel-nav-item .sublevel-nav-link .sublevel-link-text {
+    margin-inline-start: 0.25rem;
+  }
+  .sublevel-nav .sublevel-nav-item .sublevel-nav-link.active-sublevel,
+  .sublevel-nav .sublevel-nav-item .sublevel-nav-link:hover {
+    --tw-text-opacity: 1;
+    color: rgb(44 106 229 / var(--tw-text-opacity));
+  }
+  .small-icon{
+    font-size: 8px;
+  }
+  .sidenav-nav .sidenav-nav-item .sidenav-nav-link:hover .menu-collapse-icon {
+    --tw-text-opacity: 1;
+    color: rgb(44 106 229 / var(--tw-text-opacity));
+  }
+  .menu-collapse-icon {
+    margin: auto;
+    margin-inline-end: 0px;
+    width: 1rem;
+    min-width: 16px;
+    text-align: end;
+    font-size: 18px;
+    --tw-text-opacity: 1;
+    color: rgb(69 71 81 / var(--tw-text-opacity));
+  }
