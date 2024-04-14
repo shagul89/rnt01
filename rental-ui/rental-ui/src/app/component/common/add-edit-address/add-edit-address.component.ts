@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component,ViewEncapsulation, Inject } from '@angular/core';
 import { Address } from '../../model/address';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
@@ -6,7 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-edit-address',
   templateUrl: './add-edit-address.component.html',
-  styleUrl: './add-edit-address.component.css'
+  styleUrl: './add-edit-address.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AddEditAddressComponent {
 

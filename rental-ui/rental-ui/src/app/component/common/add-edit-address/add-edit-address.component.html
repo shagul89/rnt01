@@ -1,14 +1,24 @@
-<mat-card-subtitle class="m-3">Address Details
+<!-- <mat-card-subtitle class="m-3">Address Details
   <button mat-flat-button color="accent" class="float-end" (click)="addAddress()"><mat-icon>add</mat-icon>Add
     Address</button>
 </mat-card-subtitle>
 <mat-card-content>
   <div class="row">
-    <div class="col-12 table-responsive">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="col-12 table-responsive"> -->
+      <div class="col-span-12">
+        <div class="inventual-material-btn mb-7">
+          <button mat-raised-button="" color="primary" class="mb-1 mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base rnt-add-address" mat-ripple-loader-class-name="mat-mdc-button-ripple" tabindex="0" (click)="addAddress()">
+              <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
+              <mat-icon role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">add_circle_outline</mat-icon><span class="mdc-button__label"> Add Address</span>
+              <span class="mat-mdc-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span><span class="mat-ripple mat-mdc-button-ripple"></span>
+          </button>
+      </div>
+    </div>
+    <div class="table-container mat-elevation-z8 rnt-table ">
+      <table mat-table  [dataSource]="dataSource" class="">
 
         <ng-container matColumnDef="addressLine1">
-          <th mat-header-cell *matHeaderCellDef> Address Line 1 </th>
+          <th mat-header-cell *matHeaderCellDef > Address Line 1 </th>
           <td mat-cell *matCellDef="let element">
             <mat-form-field appearance="outline" class="mt-2">
               <input matInput type="text" autocomplete="off" [(ngModel)]="element.addressLine1">
@@ -99,6 +109,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-    </div>
+      </div>
+    <!-- </div>
   </div>
-</mat-card-content>
+</mat-card-content> -->

@@ -1,4 +1,4 @@
-@media only screen and (max-width: 700px) {
+/*@media only screen and (max-width: 700px) {
   .modal .mat-grid-tile {
      width:100% !important;
      position:relative!important;  
@@ -17,4 +17,28 @@
 
 .mat-mdc-table-sticky {
   right: 0px !important;
+}*/
+.rnt-add-address .mat-icon{
+  width:auto;
+  height: auto;
 }
+.rnt-table .mat-mdc-table thead .mat-mdc-header-row{
+  height: 3rem !important;
+  font-family: Nunito Sans, sans-serif !important;
+}
+
+/*
+.rnt-table .mat-mdc-table thead, .mat-mdc-header-row{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+  height:inherit !important;
+  font-size: 15px;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(13 15 25 / var(--tw-text-opacity));
+}
+
+.rnt-table .mat-mdc-table .mat-mdc-header-cell {
+  --tw-text-opacity: 1;
+  color: rgb(13 15 25 / var(--tw-text-opacity)) !important;
+}*/
