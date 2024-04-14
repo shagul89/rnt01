@@ -15,14 +15,115 @@
       </div>
     </div>
     <div class="table-container mat-elevation-z8 rnt-table ">
-      <table mat-table  [dataSource]="dataSource" class="">
+
+      <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="addressLine1">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Address Line 1 </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="rnt-table-input">
+              <mat-form-field  class="mt-2">
+                <input matInput type="text" autocomplete="off" [(ngModel)]="element.addressLine1">
+              </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="addressLine2">
+          <mat-header-cell *matHeaderCellDef> Address Line 2 </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input">
+            <mat-form-field  class="mt-2">
+              <input matInput type="text" autocomplete="off" [(ngModel)]="element.addressLine2">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="street">
+          <mat-header-cell *matHeaderCellDef> Street </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input">
+            <mat-form-field  class="mt-2">
+              <input matInput type="text" autocomplete="off" [(ngModel)]="element.street">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+          <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input"> 
+            <mat-form-field  class="mt-2">
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.city">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="state">
+          <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input"> 
+            <mat-form-field  class="mt-2">
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.state">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="country">
+          <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input"> 
+            <mat-form-field >
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.country">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="postalCode">
+          <mat-header-cell *matHeaderCellDef> Postal Code </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input">
+            <mat-form-field >
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.postalCode" numbersOnly>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="mobileNumber">
+          <mat-header-cell *matHeaderCellDef> Contact Number </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input">
+            <mat-form-field  class="mt-2">
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.mobileNumber" numbersOnly>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="alternateMobileNumber">
+          <mat-header-cell *matHeaderCellDef> Alternate Contact Number </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input">
+            <mat-form-field  class="mt-2">
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.alternateMobileNumber" numbersOnly>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="officeNumber">
+          <mat-header-cell *matHeaderCellDef> Office Number </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input"> 
+            <mat-form-field  class="mt-2">
+              <input matInput type="text"  autocomplete="off" [(ngModel)]="element.officeNumber" numbersOnly>
+            </mat-form-field>
+           </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action" >
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="rnt-table-input">
+            <mat-icon style="color: red;" (click)="deleteAddress(element.index)">delete</mat-icon>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+      <!-- <mat-table  [dataSource]="dataSource" class="">
 
         <ng-container matColumnDef="addressLine1">
           <th mat-header-cell *matHeaderCellDef > Address Line 1 </th>
           <td mat-cell *matCellDef="let element">
-            <mat-form-field appearance="outline" class="mt-2">
+            <div class="inventual-select-field ">
+            <mat-form-field  class="mt-2">
               <input matInput type="text" autocomplete="off" [(ngModel)]="element.addressLine1">
             </mat-form-field>
+          </div>
           </td>
         </ng-container>
         <ng-container matColumnDef="addressLine2">
@@ -108,7 +209,7 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      </mat-table> -->
       </div>
     <!-- </div>
   </div>
