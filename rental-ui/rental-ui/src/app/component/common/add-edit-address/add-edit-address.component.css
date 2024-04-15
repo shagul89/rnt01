@@ -97,3 +97,33 @@
 .rnt-table-input .mdc-line-ripple {
   display: none;
 }
+/*table scrolling*/
+
+.table-container {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+.table-container mat-table {
+  width: 1200px;
+  max-width: 1200px;
+  margin-bottom: 1rem;
+  display: table;
+  border-collapse: collapse;
+  margin: 0px;
+}
+.table-container mat-row,
+mat-header-row {
+  display: table-row;
+}
+.table-containermat-cell,
+mat-header-cell {
+  word-wrap: initial;
+  display: table-cell;
+  padding: 0px 5px;
+  line-break: unset;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
