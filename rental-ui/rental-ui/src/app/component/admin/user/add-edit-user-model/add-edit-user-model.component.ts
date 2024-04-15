@@ -1,4 +1,4 @@
-import { Component, Inject, ViewChild } from '@angular/core';
+import { Component, Inject, ViewChild, ViewEncapsulation  } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 //import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-edit-user-model',
   templateUrl: './add-edit-user-model.component.html',
-  styleUrl: './add-edit-user-model.component.css'
+  styleUrl: './add-edit-user-model.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AddEditUserModelComponent {
 

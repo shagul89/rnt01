@@ -1,5 +1,85 @@
-<p>add edit user works </p>
-<div class="model-width-4">
+<div class="inventual-addsupplier-area bg-white p-7 custom-shadow rounded-8 mb-5">
+    @if(isEdit) {
+      <h4 class="text-[20px] font-bold text-black mb-9">Edit User</h4>
+    } @else {
+      <h4 class="text-[20px] font-bold text-black mb-9">Add New User</h4>
+    }
+  <div class="grid grid-cols-12 gap-x-7 sm:gap-x-0" [formGroup]="form">
+      <div class="col-span-4 md:col-span-6 sm:col-span-12">
+          <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">First Name</h5>
+              <div class="inventual-input-field-style">
+                <mat-form-field  class="w-full">
+                    <input matInput type="text" autocomplete="off" formControlName="firstName" placeholder="Enter the First Name">
+                  </mat-form-field>
+              </div>
+          </div>
+      </div>
+      <div class="col-span-4 md:col-span-6 sm:col-span-12">
+          <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">Email</h5>
+              <div class="inventual-input-field-style">
+                  <mat-form-field  class="w-full">
+                    <input matInput type="email" autocomplete="off" formControlName="email" placeholder="Enter the Email">
+                  </mat-form-field>
+              </div>
+          </div>
+      </div>
+      <div class="col-span-4 md:col-span-6 sm:col-span-12">
+          <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">User Type</h5>
+              <div class="inventual-select-field-style">
+                <mat-form-field>
+                <mat-select formControlName="userType" placeholder="Select UserType">
+                    @for (usertype of userTypes; track usertype) {
+                    <mat-option class="rnt-select-panel" [value]="usertype">{{usertype | removeSpecialChar | titlecase }}</mat-option>
+                    }
+                </mat-select>
+                </mat-form-field>
+              </div>
+          </div>
+      </div>
+      <div class="col-span-4 md:col-span-6 sm:col-span-12">
+          <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">Status</h5>
+              <div class="inventual-select-field-style">
+                <mat-form-field>
+                    <mat-select formControlName="status" placeholder="Select Status">
+                        @for (s of status; track s) {
+                        <mat-option [value]="s">{{s | titlecase }}</mat-option>
+                        }
+                      </mat-select>
+                    </mat-form-field>
+                  
+              </div>
+          </div>
+      </div>
+      <!-- <div class="col-span-4 md:col-span-6 sm:col-span-12">
+          <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">Profile Image</h5>
+              <div class="inventual-input-field-style relative">
+                  <div class="inventual-input-field-file-choose"><label for="fileUploadN">Choose File</label><input type="file" id="fileUploadN" /></div>
+              </div>
+          </div>
+      </div> -->
+      <div class="col-span-12">
+        <app-add-edit-address #addressComponenet></app-add-edit-address>
+      </div>
+      <div class="col-span-12">
+          <div class="inventual-material-btn pt-2.5">
+              <button mat-raised-button="" color="primary" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                  <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span class="mdc-button__label">Create Now</span><span class="mat-mdc-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span>
+                  <span class="mat-ripple mat-mdc-button-ripple"></span>
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<!--<div class="model-width-4">
   @if(isEdit) {
   <h2 mat-dialog-title class="has-close-icon mat-dialog-header">
     Edit User
@@ -10,7 +90,7 @@
   </h2>
   }
 
-  <mat-dialog-content class="mat-typography-dialog" [formGroup]="form">
+  <div [formGroup]="form">
     <div class="row p-2">
       <mat-card>
         <mat-card-content [formGroup]="form">
@@ -68,9 +148,9 @@
         <app-add-edit-address #addressComponenet></app-add-edit-address>
       </mat-card>
     </div>
-  </mat-dialog-content>
+  </div> 
   <mat-dialog-actions align="end" class="mt-2 mb-2 mat-dialog-action-footer">
     <button mat-flat-button color="basic" mat-dialog-close>Cancel</button>
     <button mat-flat-button color="accent" [disabled]="!form.valid" (click)="submit()">Submit</button>
   </mat-dialog-actions>
-</div>
+</div>-->
