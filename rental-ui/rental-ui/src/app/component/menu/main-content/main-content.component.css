@@ -1,10 +1,10 @@
 .main-content {
   height: 90vh;
-  padding: 1px;
-  background: #fff;
+  /*padding: 1px;
+  background: #fff;*/
 }
 
-.page {
+/*.page {
   color: white;
   padding: 0 1rem;
 
@@ -33,4 +33,4 @@
       transform: translate(-50%, -50%);
     }
   }
-}
+}*/
