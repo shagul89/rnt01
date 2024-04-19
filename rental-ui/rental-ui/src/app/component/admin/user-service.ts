@@ -11,6 +11,7 @@ import { Login } from '../model/login';
 export class UserService {
 
   baseUrl: string = `${environment.apiUrl}rnt/`;
+  inputAddData: any;
 
   constructor(private http: HttpClient) { }
 

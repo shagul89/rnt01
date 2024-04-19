@@ -8,7 +8,7 @@ import { AddEditAddressComponent } from '../../../common/add-edit-address/add-ed
 import { Address } from '../../../model/address';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../../../model/user';
-import { Router } from '@angular/router';
+import { Router  } from '@angular/router';
 
 
 @Component({
@@ -36,6 +36,12 @@ export class AddEditUserModelComponent {
   }
 
   ngOnInit() {
+    let inputData = this.userService.inputAddData;
+    if(inputData && Object.keys(inputData).length !== 0){
+    this.user= Object.assign(this.user, inputData);
+    this.isEdit = true;
+    }
+
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -92,6 +98,8 @@ export class AddEditUserModelComponent {
     this.userService.saveUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data created successfully");
+        this.user= {} as User;
+        this.addressComponenet.addressList =[];
         //this.dialog.close();
       },
       error: (error) => {

@@ -59,6 +59,8 @@ export class UserComponent implements OnInit{
   }
 
   editUser(data: User){
+    this.userService.inputAddData = data;
+    this.router.navigate(["/main/admin/addedituser"]);
     /*const dialogRef = this.dialog.open(AddEditUserModelComponent, {
       data: {
         user : data
