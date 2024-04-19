@@ -75,7 +75,7 @@
   border-width: 1px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(239 240 242 / var(--tw-border-opacity));
+  border-color: rgb(180 180 180 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(252 252 252 / var(--tw-bg-opacity));
   padding-left: 1.25rem;
@@ -112,15 +112,14 @@
   border-collapse: collapse;
   margin: 0px;
 }
-.table-container mat-row,
+/*.table-container mat-row,
 mat-header-row {
   display: table-row;
-}
-.table-containermat-cell,
-mat-header-cell {
+}*/
+.table-container mat-cell,mat-header-cell {
   word-wrap: initial;
   display: table-cell;
-  padding: 0px 5px;
+  padding: 5px 5px;
   line-break: unset;
   width: auto;
   white-space: nowrap;

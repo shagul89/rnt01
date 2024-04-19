@@ -16,6 +16,16 @@
           </div>
       </div>
       <div class="col-span-4 md:col-span-6 sm:col-span-12">
+        <div class="inventual-select-field mb-5">
+            <h5 class="text-[15px] text-black font-semibold mb-3">Last Name</h5>
+            <div class="inventual-input-field-style">
+              <mat-form-field  class="w-full">
+                  <input matInput type="text" autocomplete="off" formControlName="lastName" placeholder="Enter the Last Name">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+      <div class="col-span-4 md:col-span-6 sm:col-span-12">
           <div class="inventual-select-field mb-5">
               <h5 class="text-[15px] text-black font-semibold mb-3">Email</h5>
               <div class="inventual-input-field-style">
@@ -67,7 +77,7 @@
       </div>
       <div class="col-span-12">
           <div class="inventual-material-btn pt-2.5">
-              <button mat-raised-button="" color="primary" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+              <button mat-raised-button="" color="primary" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base" [disabled]="!form.valid" (click)="submit()">
                   <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span class="mdc-button__label">Create Now</span><span class="mat-mdc-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span>
                   <span class="mat-ripple mat-mdc-button-ripple"></span>
               </button>
