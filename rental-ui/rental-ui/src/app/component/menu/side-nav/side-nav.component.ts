@@ -23,7 +23,7 @@ export class SideNavComponent {
 		displayName: "Dashboard",
     items:[]
 	}, {
-		route: "product",
+		route: "/main/admin/product",
 		displayName: "Products",
 		icon:"dvr",
 		items: []
