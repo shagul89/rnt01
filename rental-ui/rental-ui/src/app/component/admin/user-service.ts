@@ -16,7 +16,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   isLoggedIn() {
-    const token = localStorage.getItem('token') as string;
+    const token = sessionStorage.getItem('token') as string;
     const payload = atob(token.split('.')[1]);
     const parsedPayload = JSON.parse(payload);
     return parsedPayload.exp > Date.now() / 1000;

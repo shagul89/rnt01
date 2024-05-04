@@ -17,7 +17,8 @@ export class SideNavComponent {
   menuShortcutActive : boolean = false;
   profileShortcutActive : boolean = false;
   menuSidebarActive : boolean = false;
-  menu: NavItem[] =[{
+  menu: NavItem[] =[
+  /*{
 		route: "/dashboard",
 		icon:"home",
 		displayName: "Dashboard",
@@ -67,7 +68,7 @@ export class SideNavComponent {
 		icon:"settings",
 		displayName: "Administrative Tools",
     items:[]
-	}
+	}*/
 ];
 
 

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     } as Login;
     this.authsService.login(login).subscribe({
       next: (data) => {
-        if (typeof localStorage !== "undefined") {
+        if (typeof sessionStorage !== "undefined") {
           let token = data.token;
           this.refreshToken(token);
         }
@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit {
     } as any;
     this.authsService.refreshToken(login).subscribe({
       next: (data) => {
-        if (typeof localStorage !== "undefined") {
-          localStorage.setItem('token', data.accessToken);
+        if (typeof sessionStorage !== "undefined") {
+          sessionStorage.setItem('token', data.accessToken);
           this.toastr.success('Login Successfully');
           this.router.navigate(["/main/rental/dashboard"]);
         }

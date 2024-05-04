@@ -41,7 +41,7 @@
   --tw-text-opacity: 1;
   color: rgb(69 71 81 / var(--tw-text-opacity));
   position: absolute;
-  top: -0.5rem;
+  top: 0.5rem;
   right: 0;
 }
 .inventual-header-bar span {
@@ -113,8 +113,8 @@
 }
 .inventual-quick-pro-dropdown a .mat-icon {
   width: 24px !important;
-  font-size: 16px;
-  transform: translateY(3px);
+  font-size: 20px;
+  transform: translateY(9px);
 }
 .inventual-notify-dropdown-list .inventual-notify-img {
   width: 50px;
@@ -299,10 +299,28 @@ mat-toolbar{
       margin-inline-start: -315px;
   }
 }
-.inventual-dashboard-sidebar .inventual-header-bar-responsive {
+
+.rental-header-bar-nav-icon {
+  position: fixed;
+  z-index: 100;
+  inset-inline-start: 10px;
+}
+
+.inventual-header-area {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.sidebar-enable >.rental-header-bar-nav-icon{
   position: absolute;
-  top: 23px;
   z-index: 11;
+  inset-inline-start: 325px;
+}
+.inventual-dashboard-sidebar .inventual-header-bar-responsive {
+  /*position: absolute;
+  z-index: 11;*/
+  top: 23px;
   inset-inline-end: -60px;
   display: inline-block;
   cursor: pointer;

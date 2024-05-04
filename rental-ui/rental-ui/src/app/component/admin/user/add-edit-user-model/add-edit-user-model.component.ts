@@ -26,6 +26,7 @@ export class AddEditUserModelComponent {
   user: User = new User;
   userTypes = ['MANAGER', 'EMPLOYEE', 'CASHIER', 'ADMIN', 'SUPER_ADMIN'];
   status = ['ACTIVE', 'DEACTIVE'];
+  gender = ['MALE', 'FEMALE'];
 
   constructor( private userService: UserService, private router: Router,
      private toastr: ToastrService, private formBuilder: FormBuilder) {
@@ -47,7 +48,9 @@ export class AddEditUserModelComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       status: ['', Validators.required],
-      userType: ['', Validators.required]
+      userType: ['', Validators.required],
+      gender: ['', Validators.required],
+      contactnumber: ['', Validators.required]
     });
     if (this.isEdit) {
       this.form.controls.firstName.patchValue(this.user.firstName);
@@ -55,13 +58,15 @@ export class AddEditUserModelComponent {
       this.form.controls.email.patchValue(this.user.email);
       this.form.controls.status.patchValue(this.user.status);
       this.form.controls.userType.patchValue(this.user.userType);
+      this.form.controls.gender.patchValue(this.user.gender);
+      this.form.controls.contactnumber.patchValue(this.user.contactnumber);
     }
   }
 
   ngAfterViewInit() {
     if (this.isEdit) {
       setTimeout(() => {
-        this.addressComponenet.initAddress(this.user.userAddress);
+        //this.addressComponenet.initAddress(this.user.userAddress);
       }, 0);
     }
   }
@@ -76,16 +81,18 @@ export class AddEditUserModelComponent {
     this.user.email = this.form.get('email').value;
     this.user.userType = this.form.get('userType').value;
     this.user.status = this.form.get('status').value;
-    this.user.userAddress = this.addressComponenet.addressList;
+    this.user.gender = this.form.get('gender').value;
+    this.user.contactnumber = this.form.get('contactnumber').value;
+    //this.user.userAddress = this.addressComponenet.addressList;
   }
 
   submit() {
     if (this.form.invalid) {
       return;
     }
-    if (this.addressComponenet.isError) {
+    /*if (this.addressComponenet.isError) {
       return;
-    }
+    }*/
     this.convertFormToUser();
     if(this.isEdit){
       this.update();
@@ -99,7 +106,7 @@ export class AddEditUserModelComponent {
       next: (data) => {
         this.toastr.success("User data created successfully");
         this.user= {} as User;
-        this.addressComponenet.addressList =[];
+        //this.addressComponenet.addressList =[];
         //this.dialog.close();
       },
       error: (error) => {

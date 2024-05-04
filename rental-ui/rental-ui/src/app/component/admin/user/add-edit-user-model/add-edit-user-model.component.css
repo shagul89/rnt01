@@ -233,6 +233,9 @@
     flex-wrap: wrap;
     gap: 1.25rem;
 }
+.pull-right-btn{
+    float:right;
+}
 .inventual-material-btn .mdc-button {
     height: 3rem;
     min-width: 0px;

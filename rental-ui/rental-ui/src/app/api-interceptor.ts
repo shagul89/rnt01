@@ -12,7 +12,7 @@ export const APIInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: H
     const cloned = req.clone({
       setHeaders: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("token")?.toString(),
+        "Authorization": "Bearer " + sessionStorage.getItem("token")?.toString(),
       },
     });
     return next(cloned).pipe(finalize(() => loadingService.hide()));;

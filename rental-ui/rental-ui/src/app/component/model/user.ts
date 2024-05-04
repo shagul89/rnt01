@@ -9,6 +9,8 @@ export class User {
     password!: string;
     userName!: string;
     userType!: string;
+    gender!: string;
+    contactnumber!: string;
     roles!: any;
     createdBy!: string;
     createdDate!: Date;

@@ -15,15 +15,15 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) { }
 
     logout(){
-        if(typeof localStorage !== "undefined"){
-          localStorage.removeItem("token");
+        if(typeof sessionStorage !== "undefined"){
+          sessionStorage.removeItem("token");
           this.router.navigate(["/auth/login"]);
         }
       }
 
     isLoggedIn() {
-        if(typeof localStorage !== "undefined"){
-            const token = localStorage.getItem('token') as string;
+        if(typeof sessionStorage !== "undefined"){
+            const token = sessionStorage.getItem('token') as string;
             return token as string ? true : false;
         }
         return false;
