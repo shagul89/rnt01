@@ -20283,6 +20283,11 @@ img,video {
     padding-bottom: 2.25rem
 }
 
+.py-7 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 .pb-0 {
     padding-bottom: 0
 }
