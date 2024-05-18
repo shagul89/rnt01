@@ -16,9 +16,8 @@ export class SideNavComponent {
   menuShortcutActive : boolean = false;
   profileShortcutActive : boolean = false;
   menuSidebarActive : boolean = false;
+
   menu: NavItem[] =[];
-
-
   constructor(private _formBuilder: FormBuilder, private menuService: MenuService, private authService: AuthService) {
     if (typeof window !== "undefined") {
       let path = window.location.pathname as any;
