@@ -1,71 +1,72 @@
 <div class="inventual-dashboard-area">
-    <div class="inventual-dashboard-sidebar" [ngClass]="{'sidebar-enable': menuSidebarActive}">
-        <div class="inventual-header-bar-responsive">
-            <mat-icon role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                aria-hidden="true" data-mat-icon-type="font" (click)="sidemenuToggle()">reorder</mat-icon>
-        </div>
-        <div
-            class="inventual-menu-wrapper bg-white border-e border-b border-solid border-gray-border py-10 px-7 lg:px-5 lg:py-8">
-            <app-menu class=" ">
-                <div class="">
-                    <div class="inventual-logo text-center mb-8 px-0.5 ">
-                        <a class="inline-block " href="/dashboard">
-                            <img src="../../.././assets/logo/rental.png" alt="logo not found" class="">
-                        </a>
-                    </div>
-                    <div class="inventual-menu px-0.5 ">
-                        <div class="sidenav sidenav-collapsed ">
-                            <div class="scrollwrap scrollwrap_delayed ">
-                                <ul class="sidenav-nav" *ngFor="let item of menu">
-                                    <li class="sidenav-nav-item">
-                                        <a routerlinkactive="active" class="sidenav-nav-link  " [href]="item.route">
-                                            <mat-icon>{{item.icon}}</mat-icon>
-                                            <span class="sidenav-link-text  ng-trigger ng-trigger-fadeInOut">
-                                                {{item.displayName}} </span>
-                                        </a>
-                                    </li>
-                                </ul>
+<div class="inventual-dashboard-sidebar" [ngClass]="{'sidebar-enable': menuSidebarActive}">
+    <div class="inventual-header-bar-responsive rental-header-bar-nav-icon" >
+       <mat-icon role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font"  (click)="sidemenuToggle()">reorder</mat-icon>
+    </div>
+    <div class="inventual-menu-wrapper bg-white border-e border-b border-solid border-gray-border py-10 px-7 lg:px-5 lg:py-8">
+       <app-menu class=" ">
+          <div class="">
+             <div class="inventual-logo text-center mb-8 px-0.5 ">
+                <a class="inline-block " href="/dashboard">
+                    <img src="../../.././assets/logo/rental.png" alt="logo not found" class="">
+                </a>
+             </div>
+             <div class="inventual-menu px-0.5 ">
+                <div class="sidenav sidenav-collapsed ">
+                   <div class="scrollwrap scrollwrap_delayed ">
+                    <ul class="sidenav-nav" *ngFor="let item of menu">
+                        <li class="sidenav-nav-item">
+                            <a routerlinkactive="active" class="sidenav-nav-link  " [href]="item.route">
+                                <mat-icon>{{item.icon}}</mat-icon>
+                                <span class="sidenav-link-text  ng-trigger ng-trigger-fadeInOut"> {{item.displayName}} </span>
+                                <!--<mat-icon *ngIf="item.items.length > 0" class="menu-collapse-icon menu-collapse-icon-rtl " aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>-->
+                            </a>
+                            <div>
+                                <!--<app-sublevel-menu  *ngIf="item.items.length > 0" [subMenu]="item.items">
+
+                                </app-sublevel-menu>-->
                             </div>
-                        </div>
+                            </li>
+                            </ul>
                     </div>
+                </div>
+                </div>
                 </div>
             </app-menu>
         </div>
         <div class="inventual-menu-overlay" [ngClass]="{'sidebar-enable': menuSidebarActive}"></div>
     </div>
-    <div class="inventual-dashboard-main" [ngClass]="{'sidebar-enable': menuSidebarActive}">
-        <div class="inventual-header-area">
-            <div
-                class="inventual-header-wrapper custom-height-70 px-7 custom-height-70 bg-white border-b border-solid border-gray-border">
-                <div class="grid grid-cols-12 items-center h-full">
-                    <div class="col-span-12">
-                        <div class="inventual-header-content flex items-center justify-end custom-height-70">
-                            <div
-                                class="inventual-header-profile relative ps-5 flex flex-wrap items-center pe-11 sm:pe-0 md:pe-0">
-                                <div class="inventual-header-profile-img w-12 sm:me-0 md:me-0 cursor-pointer">
-                                    <a href="javascript:void(0)"><img src="../../.././assets/icon/header_profile.png"
-                                            alt="profile not found" class="object-cover"></a>
-                                </div>
-                                <div class="inventual-header-profile-info md:hidden sm:hidden ps-2.5 cursor-pointer">
-                                    <span class="text-[15px] font-bold text-black cursor-pointer">Shagul</span><br>
-                                    <span class="text-[13px] font-normal text-gray cursor-pointer">Admin User</span>
-                                    <mat-icon aria-hidden="false" aria-label="Example home icon"
-                                        fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>
-                                </div>
-                                <div class="inventual-quick-dropdown inventual-quick-pro-dropdown"
-                                    [ngClass]="{'promenu-enable': profileShortcutActive}">
-                                    <ul>
-                                        <li><a href="/profile"><mat-icon>account_circle</mat-icon>Profle</a></li>
-                                        <li><a href="#"><mat-icon>exit_to_app</mat-icon>Logout</a></li>
-                                    </ul>
-                                </div>
+    <div class="inventual-menu-overlay" [ngClass]="{'sidebar-enable': menuSidebarActive}"></div>
+ </div>
+
+
+<div class="inventual-dashboard-main" [ngClass]="{'sidebar-enable': menuSidebarActive}">
+    <div class="inventual-header-area">
+        <div class="inventual-header-wrapper custom-height-70 px-7 custom-height-70 bg-white border-b border-solid border-gray-border">
+            <div class="grid grid-cols-12 items-center h-full">
+                <div class="col-span-12">
+                    <div class="inventual-header-content flex items-center justify-end custom-height-70">
+                         <div  class="inventual-header-profile relative ps-5 flex flex-wrap items-center pe-11 sm:pe-0 md:pe-0">
+                            <div  class="inventual-header-profile-img w-12 sm:me-0 md:me-0 cursor-pointer">
+                                <a  href="javascript:void(0)"><img  src="../../.././assets/icon/header_profile.png" alt="profile not found" class="object-cover" ></a>
                             </div>
-                        </div>
+                            <div  class="inventual-header-profile-info md:hidden sm:hidden ps-2.5 cursor-pointer">
+                               <span  class="text-[15px] font-bold text-black cursor-pointer">Shagul</span><br>
+                               <span  class="text-[13px] font-normal text-gray cursor-pointer">Admin User</span>
+                               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>
+    
+                            </div>
+                            <div  class="inventual-quick-dropdown inventual-quick-pro-dropdown" [ngClass]="{'promenu-enable': profileShortcutActive}">
+                               <ul >
+                                <li ><a  href="/profile"><mat-icon>account_circle</mat-icon>Profle</a></li>
+                                <li ><a  href="#"><mat-icon>exit_to_app</mat-icon>Logout</a></li>
+                               </ul>
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <app-main-content [title]="activeMenu.displayName"></app-main-content>
     </div>
-
 </div>

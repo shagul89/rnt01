@@ -11,7 +11,6 @@ import { MenuService } from '../menu-service';
 })
 export class SideNavComponent {
 
-  //menu: NavItem[] = [];
   activeMenu = {}  as any;
   options: any;
   menuShortcutActive : boolean = false;
