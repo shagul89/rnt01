@@ -1,12 +1,8 @@
-import { Component, Inject, ViewChild, ViewEncapsulation  } from '@angular/core';
+import { Component,  ViewChild, ViewEncapsulation  } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-//import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../../user-service';
+import { UserService } from '../../../rental/user-service';
 import { AddEditAddressComponent } from '../../../common/add-edit-address/add-edit-address.component';
-import { Address } from '../../../model/address';
-import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../../../model/user';
 import { Router  } from '@angular/router';
 

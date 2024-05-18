@@ -14,15 +14,17 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
-import { RentalRoutingModule } from './rental-routes';
 import { OrderDetailsComponent } from './order/order-details/order-details.component';
 import { AddEditProductModelComponent } from './product/add-edit-product-model/add-edit-product-model.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddEditCustomerModelComponent } from './customer/add-edit-customer-model/add-edit-customer-model.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { AddEditConfigModelComponent } from './configuration/add-edit-config-model/add-edit-config-model.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { APIInterceptor } from '../../api-interceptor';
+import { AddEditAddressComponent } from '../common/add-edit-address/add-edit-address.component';
+import { NumberOnlyDirective } from '../common/directive/number-only';
+import { RemoveSpecialCharPipe } from '../common/directive/remove-special-char';
+import { UserComponent } from './user/user.component';
+import { AddEditUserModelComponent } from './user/add-edit-user-model/add-edit-user-model.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,15 @@ import { APIInterceptor } from '../../api-interceptor';
     CustomerComponent,
     AddEditCustomerModelComponent,
     ConfigurationComponent,
+    UserComponent,
+    AddEditUserModelComponent,
+    AddEditAddressComponent,
+    RemoveSpecialCharPipe,
+    NumberOnlyDirective,
     AddEditConfigModelComponent
   ],
   imports: [
     CommonModule,
-    RentalRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,

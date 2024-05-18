@@ -1,8 +1,8 @@
 import { Component , HostListener } from '@angular/core';
 import { NavItem } from '../../model/nav-item';
 import { FormBuilder } from '@angular/forms';
-import { AuthService } from '../../auth/auth-service';
 import { MenuService } from '../menu-service';
+import { AuthService } from '../../rental/auth-service';
 
 @Component({
   selector: 'app-side-nav',

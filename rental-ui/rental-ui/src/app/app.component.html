@@ -1,13 +1,6 @@
-<div>
-    @if (isLogin()) {
-    <app-side-nav></app-side-nav>
-    }
-</div>
-<div>
-    @if(!isLogin()){
-    <router-outlet></router-outlet>
-    }
-</div>
-
-
+@if (isLoggedIn | async) {
+<app-side-nav></app-side-nav>
+} @else {
+<router-outlet></router-outlet>
+}
 <ngx-spinner type="ball-clip-rotate-multiple"></ngx-spinner>

@@ -59,7 +59,8 @@ export class LoginComponent implements OnInit {
         if (typeof sessionStorage !== "undefined") {
           sessionStorage.setItem('token', data.accessToken);
           this.toastr.success('Login Successfully');
-          this.router.navigate(["/main/rental/dashboard"]);
+          this.router.navigate(["/rental/dashboard"]);
+          this.authsService.loggedIn.next(true)
         }
       },
       error: (error) => {

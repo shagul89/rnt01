@@ -4,9 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { User } from '../../model/user';
-import { MatDialog } from '@angular/material/dialog';
-import { AddEditUserModelComponent } from './add-edit-user-model/add-edit-user-model.component';
-import { UserService } from '../user-service';
+import { UserService } from '../../rental/user-service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

@@ -10,14 +10,16 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-    loggedIn = new BehaviorSubject<boolean>(false);
-
     baseUrl: string = `${environment.apiUrl}rnt/`;
 
-    constructor(private http: HttpClient, private router: Router) { }
+    loggedIn = new BehaviorSubject<boolean>(false);
 
-    get isLoggedIn() {
-        return this.loggedIn.asObservable(); // {2}
+    constructor(private http: HttpClient, private router: Router) { 
+        if(typeof sessionStorage !== "undefined"){
+            if(sessionStorage.getItem("token")){
+                this.loggedIn.next(true);
+            }
+        }
     }
 
     logout() {
@@ -25,6 +27,10 @@ export class AuthService {
             sessionStorage.removeItem("token");
             this.router.navigate(["/auth/login"]);
         }
+    }
+
+    get isLoggedIn() {
+        return this.loggedIn.asObservable(); // {2}
     }
 
     login(user: Login): Observable<any> {

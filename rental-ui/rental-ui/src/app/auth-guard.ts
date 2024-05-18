@@ -5,16 +5,22 @@ import {
     Router,
     CanActivateFn
 } from '@angular/router';
-import { AuthService } from './component/auth/auth-service';
+import { map, take } from 'rxjs';
+import { AuthService } from './component/rental/auth-service';
 
 export const AuthGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const authsService = inject(AuthService);
     const router = inject(Router);
 
-    if(authsService.isLoggedIn()){
-        return true;
-    } else {
-        router.navigate(['/auth/login']);
-        return false;
-    }
+    return authsService.isLoggedIn
+        .pipe(
+            take(1),
+            map((isLoggedIn: boolean) => {
+                if (!isLoggedIn) {
+                    router.navigate(['/auth/login']);
+                    return false;
+                }
+                return true;
+            })
+        )
 }

@@ -5,7 +5,8 @@ import { Router, RouterOutlet } from '@angular/router';
 import { MenuModule } from './component/menu/menu-module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { AuthService } from './component/auth/auth-service';
+import { Observable } from 'rxjs';
+import { AuthService } from './component/rental/auth-service';
 
 @Component({
   selector: 'app-root',
@@ -18,17 +19,10 @@ import { AuthService } from './component/auth/auth-service';
 export class AppComponent {
 
   title = 'rental-app-ui';
+  isLoggedIn!: Observable<boolean>;
 
   constructor(private authService: AuthService, private router: Router) {
-    
+    this.isLoggedIn = this.authService.isLoggedIn;
   }
 
-  isLogin(){
-    if (typeof window !== "undefined") {
-      if(this.authService.isLoggedIn()){
-        return true;
-      } 
-    }
-    return false;
-  }
 }
