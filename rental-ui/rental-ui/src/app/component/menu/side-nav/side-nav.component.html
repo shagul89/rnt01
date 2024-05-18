@@ -1,133 +1,71 @@
-
-
 <div class="inventual-dashboard-area">
-
-
-<div class="inventual-dashboard-sidebar" [ngClass]="{'sidebar-enable': menuSidebarActive}">
-    <div class="inventual-header-bar-responsive rental-header-bar-nav-icon" >
-       <mat-icon role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font"  (click)="sidemenuToggle()">reorder</mat-icon>
-    </div>
-    <div class="inventual-menu-wrapper bg-white border-e border-b border-solid border-gray-border py-10 px-7 lg:px-5 lg:py-8">
-       <app-menu class=" ">
-          <div class="">
-             <div class="inventual-logo text-center mb-8 px-0.5 ">
-                <a class="inline-block " href="/dashboard">
-                    <img src="../../.././assets/logo/rental.png" alt="logo not found" class="">
-                </a>
-             </div>
-             <div class="inventual-menu px-0.5 ">
-                <div class="sidenav sidenav-collapsed ">
-                   <div class="scrollwrap scrollwrap_delayed ">
-                    <ul class="sidenav-nav" *ngFor="let item of menu">
-                        <li class="sidenav-nav-item">
-                            <a routerlinkactive="active" class="sidenav-nav-link  " [href]="item.route">
-                                <mat-icon>{{item.icon}}</mat-icon>
-                                <span class="sidenav-link-text  ng-trigger ng-trigger-fadeInOut"> {{item.displayName}} </span>
-                                <!--<mat-icon *ngIf="item.items.length > 0" class="menu-collapse-icon menu-collapse-icon-rtl " aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>-->
-                            </a>
-                            <div>
-                                <!--<app-sublevel-menu  *ngIf="item.items.length > 0" [subMenu]="item.items">
-
-                                </app-sublevel-menu>-->
+    <div class="inventual-dashboard-sidebar" [ngClass]="{'sidebar-enable': menuSidebarActive}">
+        <div class="inventual-header-bar-responsive">
+            <mat-icon role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                aria-hidden="true" data-mat-icon-type="font" (click)="sidemenuToggle()">reorder</mat-icon>
+        </div>
+        <div
+            class="inventual-menu-wrapper bg-white border-e border-b border-solid border-gray-border py-10 px-7 lg:px-5 lg:py-8">
+            <app-menu class=" ">
+                <div class="">
+                    <div class="inventual-logo text-center mb-8 px-0.5 ">
+                        <a class="inline-block " href="/dashboard">
+                            <img src="../../.././assets/logo/rental.png" alt="logo not found" class="">
+                        </a>
+                    </div>
+                    <div class="inventual-menu px-0.5 ">
+                        <div class="sidenav sidenav-collapsed ">
+                            <div class="scrollwrap scrollwrap_delayed ">
+                                <ul class="sidenav-nav" *ngFor="let item of menu">
+                                    <li class="sidenav-nav-item">
+                                        <a routerlinkactive="active" class="sidenav-nav-link  " [href]="item.route">
+                                            <mat-icon>{{item.icon}}</mat-icon>
+                                            <span class="sidenav-link-text  ng-trigger ng-trigger-fadeInOut">
+                                                {{item.displayName}} </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </li>
-
-                    </ul>
-                   </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-       </app-menu>
+            </app-menu>
+        </div>
+        <div class="inventual-menu-overlay" [ngClass]="{'sidebar-enable': menuSidebarActive}"></div>
     </div>
-    <div class="inventual-menu-overlay" [ngClass]="{'sidebar-enable': menuSidebarActive}"></div>
- </div>
-
-
-<div class="inventual-dashboard-main" [ngClass]="{'sidebar-enable': menuSidebarActive}">
-    <div class="inventual-header-area">
-        <div class="inventual-header-wrapper custom-height-70 px-7 custom-height-70 bg-white border-b border-solid border-gray-border">
-            <div class="grid grid-cols-12 items-center h-full">
-                <div class="col-span-12">
-                    <div class="inventual-header-content flex items-center justify-end custom-height-70">
-                        <!-- <div  class="inventual-header-shortmenu pe-5 sm:pe-4 border-e items-center flex flex-col justify-center border-gray-border border-solid custom-height-70">
-                            <a  href="javascript:void(0)" class="h-10 w-10 leading-[38px] border border-gray-borderTwo border-solid text-center inline-block rounded-[3px] text-gray-lightTwo short" (click)="shortmenu()">
-                               <mat-icon  role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">add</mat-icon>
-                            </a>
-                            <div  class="inventual-quick-dropdown" [ngClass]="{'shortmenu-enable': menuShortcutActive}">
-                               <ul >
-                                  <li ><a  href="/trading/sales/possale">POS Sale</a></li>
-                                  <li ><a  href="/trading/sales/newsale">Add New Sale</a></li>
-                                  <li ><a  href="/trading/purchase/addpurchase">Add Purchase</a></li>
-                                  <li ><a  href="/product/adjustment">Add Adjustment</a></li>
-                                  <li ><a  href="/expesne/addexpense">Add Expense</a></li>
-                                  <li ><a  href="/warehouselist">Warehouse</a></li>
-                                  <li ><a  href="/client/adduser">Add User</a></li>
-                                  <li ><a  href="/people/addsupplier">Add Supplier</a></li>
-                                  <li ><a  href="/people/addcustomer">Add Customer</a></li>
-                               </ul>
+    <div class="inventual-dashboard-main" [ngClass]="{'sidebar-enable': menuSidebarActive}">
+        <div class="inventual-header-area">
+            <div
+                class="inventual-header-wrapper custom-height-70 px-7 custom-height-70 bg-white border-b border-solid border-gray-border">
+                <div class="grid grid-cols-12 items-center h-full">
+                    <div class="col-span-12">
+                        <div class="inventual-header-content flex items-center justify-end custom-height-70">
+                            <div
+                                class="inventual-header-profile relative ps-5 flex flex-wrap items-center pe-11 sm:pe-0 md:pe-0">
+                                <div class="inventual-header-profile-img w-12 sm:me-0 md:me-0 cursor-pointer">
+                                    <a href="javascript:void(0)"><img src="../../.././assets/icon/header_profile.png"
+                                            alt="profile not found" class="object-cover"></a>
+                                </div>
+                                <div class="inventual-header-profile-info md:hidden sm:hidden ps-2.5 cursor-pointer">
+                                    <span class="text-[15px] font-bold text-black cursor-pointer">Shagul</span><br>
+                                    <span class="text-[13px] font-normal text-gray cursor-pointer">Admin User</span>
+                                    <mat-icon aria-hidden="false" aria-label="Example home icon"
+                                        fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>
+                                </div>
+                                <div class="inventual-quick-dropdown inventual-quick-pro-dropdown"
+                                    [ngClass]="{'promenu-enable': profileShortcutActive}">
+                                    <ul>
+                                        <li><a href="/profile"><mat-icon>account_circle</mat-icon>Profle</a></li>
+                                        <li><a href="#"><mat-icon>exit_to_app</mat-icon>Logout</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                         </div> -->
-    
-                         <div  class="inventual-header-profile relative ps-5 flex flex-wrap items-center pe-11 sm:pe-0 md:pe-0">
-                            <div  class="inventual-header-profile-img w-12 sm:me-0 md:me-0 cursor-pointer">
-                                <a  href="javascript:void(0)"><img  src="../../.././assets/icon/header_profile.png" alt="profile not found" class="object-cover" ></a>
-                            </div>
-                            <div  class="inventual-header-profile-info md:hidden sm:hidden ps-2.5 cursor-pointer">
-                               <span  class="text-[15px] font-bold text-black cursor-pointer">Shagul</span><br>
-                               <span  class="text-[13px] font-normal text-gray cursor-pointer">Admin User</span>
-                               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_down" (click)="profilemenu()"></mat-icon>
-    
-                            </div>
-                            <div  class="inventual-quick-dropdown inventual-quick-pro-dropdown" [ngClass]="{'promenu-enable': profileShortcutActive}">
-                               <ul >
-                                <li ><a  href="/profile"><mat-icon>account_circle</mat-icon>Profle</a></li>
-                                <li ><a  href="#"><mat-icon>exit_to_app</mat-icon>Logout</a></li>
-                               </ul>
-                            </div>
-                         </div>
-                         
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <app-main-content [title]="activeMenu.displayName"></app-main-content>
     </div>
-    <app-main-content [title]="activeMenu.displayName"></app-main-content>
-</div>
 
 </div>
-
-
-
-
-<!--<div class="nav-container">
-    <mat-toolbar color="primary" class="example-toolbar">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <h1 class="nav-app-name">Responsive App</h1>
-
-        <span class="fill-remaining-space"></span>
-        <button mat-icon-button>
-            <mat-icon class="nav-iocn">notifications</mat-icon>
-        </button>
-        <button mat-icon-button>
-            <mat-icon class="nav-iocn">perm_identity</mat-icon>
-        </button>
-        <button mat-icon-button (click)="logout()">
-            <mat-icon class="nav-iocn" >exit_to_app</mat-icon>
-        </button>
-    </mat-toolbar>
-    <mat-sidenav-container class="nav-sidenav-container">
-        <mat-sidenav #snav mode="side" opened [fixedInViewport]="options.value.fixed"
-            [fixedTopGap]="options.value.top" [fixedBottomGap]="options.value.bottom">
-            <mat-nav-list>
-                <span *ngFor="let item of menu">
-                    <mat-list-item (click)="selectedMenu(item)" [routerLink]="[item.route]" [ngClass]="{'active':item.defaultSelected}" >
-                        <button mat-button [ngClass]="{'active-label':item.defaultSelected}"><mat-icon>{{item.icon}}</mat-icon> {{item.displayName}}</button>
-                    </mat-list-item>
-                </span>
-            </mat-nav-list>
-        </mat-sidenav>
-        <mat-sidenav-content>
-            <app-main-content [title]="activeMenu.displayName"></app-main-content>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
-</div>-->

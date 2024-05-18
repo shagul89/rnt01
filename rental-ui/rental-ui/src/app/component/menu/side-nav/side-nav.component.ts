@@ -17,61 +17,8 @@ export class SideNavComponent {
   menuShortcutActive : boolean = false;
   profileShortcutActive : boolean = false;
   menuSidebarActive : boolean = false;
-  menu: NavItem[] =[
-  /*{
-		route: "/dashboard",
-		icon:"home",
-		displayName: "Dashboard",
-    items:[]
-	}, {
-		route: "/main/admin/product",
-		displayName: "Products",
-		icon:"dvr",
-		items: []
-	}, {
-		route: "trading",
-		displayName: "Trading",
-		icon:"show_chart",
-		items: []
-	}, {
-		route: "expesne",
-		displayName: "Expense",
-		icon:"account_balance_wallet",
-		items: []
-	}, {
-		route: "people",
-		displayName: "People",
-		icon:"people_outline",
-		items: []
-	}, {
-		route: "/main/admin/user",
-		displayName: "User Management",
-		icon:"person_outline",
-		items: []
-	}, {
-		route: "report",
-		displayName: "Reports",
-		icon:"dashboard",
-		items: []
-	}, {
-		route: "transfer",
-		displayName: "Transfer",
-		icon:"swap_horiz",
-		items: []
-	}, {
-		route: "/warehouselist",
-		icon:"domain",
-		displayName: "Warehouse",
-    items:[]
-	}, {
-		route: "/rolepermission",
-		icon:"settings",
-		displayName: "Administrative Tools",
-    items:[]
-	}*/
-];
 
-
+  menu: NavItem[] =[];
   constructor(private _formBuilder: FormBuilder, private menuService: MenuService, private authService: AuthService) {
     if (typeof window !== "undefined") {
       let path = window.location.pathname as any;
