@@ -10,8 +10,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MainContentComponent } from './main-content/main-content.component';
-import { RentalRoutingModule } from '../rental/rental-routes';
-import { RentalModule } from '../rental/rental-module';
 
 @NgModule({
   imports: [
@@ -22,9 +20,7 @@ import { RentalModule } from '../rental/rental-module';
     MatIconModule,
     MatListModule,
     MatToolbarModule,
-    MatButtonModule,
-    RentalRoutingModule,
-    RentalModule
+    MatButtonModule
   ],
   declarations: [
     SideNavComponent,

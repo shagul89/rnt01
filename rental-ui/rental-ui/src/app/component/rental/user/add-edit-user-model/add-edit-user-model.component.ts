@@ -1,10 +1,10 @@
 import { Component,  ViewChild, ViewEncapsulation  } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../../../rental/user-service';
 import { AddEditAddressComponent } from '../../../common/add-edit-address/add-edit-address.component';
 import { User } from '../../../model/user';
 import { Router  } from '@angular/router';
+import { RentalService } from '../../rental-service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class AddEditUserModelComponent {
   status = ['ACTIVE', 'DEACTIVE'];
   gender = ['MALE', 'FEMALE'];
 
-  constructor( private userService: UserService, private router: Router,
+  constructor( private rentalService: RentalService, private router: Router,
      private toastr: ToastrService, private formBuilder: FormBuilder) {
     /*if (data && data.user) {
       this.user = data.user;
@@ -33,7 +33,7 @@ export class AddEditUserModelComponent {
   }
 
   ngOnInit() {
-    let inputData = this.userService.inputAddData;
+    let inputData = {};
     if(inputData && Object.keys(inputData).length !== 0){
     this.user= Object.assign(this.user, inputData);
     this.isEdit = true;
@@ -98,7 +98,7 @@ export class AddEditUserModelComponent {
   }
 
   save() {
-    this.userService.saveUser(this.user).subscribe({
+    this.rentalService.saveUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data created successfully");
         this.user= {} as User;
@@ -112,7 +112,7 @@ export class AddEditUserModelComponent {
   }
 
   update() {
-    this.userService.updateUser(this.user).subscribe({
+    this.rentalService.updateUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data updated successfully");
         //this.dialog.close();
