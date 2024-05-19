@@ -17,6 +17,11 @@
     <mat-sidenav-container class="nav-sidenav-container">
         <mat-sidenav #snav mode="side" opened [fixedInViewport]="options.value.fixed"
             [fixedTopGap]="options.value.top" [fixedBottomGap]="options.value.bottom">
+            <div class="inventual-logo">
+                <!-- <a class="inline-block">
+                    <img src="../../../../assets/logo/IconRental.png" alt="logo not found" >
+                </a> -->
+            </div>
             <mat-nav-list>
                 <span *ngFor="let item of menu">
                     <mat-list-item (click)="selectedMenu(item)" [routerLink]="[item.route]" [ngClass]="{'active':item.defaultSelected}" >
