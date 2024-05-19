@@ -16,7 +16,8 @@ const rentalRoutes: Routes = [
     { path: 'config', component: ConfigurationComponent, canActivate: [AuthGuard] },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
-    { path: 'addedituser', component: AddEditUserModelComponent, canActivate: [AuthGuard] }
+    { path: 'add-user', component: AddEditUserModelComponent, canActivate: [AuthGuard] },
+    { path: 'edit-user/:id', component: AddEditUserModelComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({

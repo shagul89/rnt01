@@ -1,6 +1,7 @@
 package com.rental.product.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rental.product.enumeration.AddressType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,6 +52,9 @@ public class AddressEntity implements Serializable {
 
     @Column(name = "ALT_CONTACT_NO")
     private String alternateMobileNumber;
+
+    @Column(name = "ADDRESS_TYPE")
+    private AddressType addressType;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "userAddress")
     @JsonIgnore

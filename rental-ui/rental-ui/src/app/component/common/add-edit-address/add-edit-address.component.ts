@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Address } from '../../model/address';
-import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -10,49 +9,33 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddEditAddressComponent {
 
-
-  displayedColumns: string[] = ['addressLine1', 'addressLine2', 'street', 'city', 'state', 'postalCode', 'country', 'mobileNumber', 'alternateMobileNumber', 'officeNumber', 'action'];
-  dataSource: any;
-  addressList: Address[] = [];
+  @Input() addressList: Address[] = [];
   isError = false;
+  @Input() isEdit = false;
 
   constructor(private toastr: ToastrService) {
 
   }
 
   ngOnInit() {
-
-  }
-
-  initAddress(list: Address[]){
-    this.addressList = list ? list : [];
-    for(var i=0;i<this.addressList.length;i++){
-      this.addressList[i].index = i;
-    }
-    this.dataSource = new MatTableDataSource(this.addressList);
-  }
-
-  createAddress() {
-    let addAddress = {} as Address;
-    this.addressList.push(addAddress);
-    for(var i=0;i<this.addressList.length;i++){
-      this.addressList[i].index = i;
-    }
-    this.dataSource = new MatTableDataSource(this.addressList);
-  }
-
-  addAddress() {
-    this.validateAddress();
-    if (this.addressList.length > 0 && !this.isError) {
-      this.createAddress();
-    } else if (this.addressList.length == 0) {
-      this.createAddress();
+    if (!this.isEdit) {
+      this.setDefaultAdddress();
+    } else{
+      if(this.addressList.length ==0){
+        this.setDefaultAdddress();
+      }
     }
   }
 
-  deleteAddress(index: number) {
-    this.addressList = this.addressList.filter(e => e.index != index);
-    this.dataSource = new MatTableDataSource(this.addressList);
+  setDefaultAdddress() {
+    let permanent = {} as Address;
+    permanent.addressType = "PERMANENT";
+
+    let temporary = {} as Address;
+    temporary.addressType = "TEMPORARY";
+
+    this.addressList.push(permanent);
+    this.addressList.push(temporary);
   }
 
   validateAddress() {

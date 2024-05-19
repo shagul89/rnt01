@@ -71,7 +71,7 @@ public class ApplicationStartInit {
                     userVO1.setLastName("admin");
                     userVO1.setEmail("admin@gmail.com");
                     userVO1.setStatus(UserStatus.ACTIVE);
-                    userVO1.setUserType(UserType.SUPER_ADMIN);
+                    userVO1.setUserType(List.of(UserType.SUPER_ADMIN.name()));
 
                     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
                     String encodedPassword = encoder.encode(defaultPassword);

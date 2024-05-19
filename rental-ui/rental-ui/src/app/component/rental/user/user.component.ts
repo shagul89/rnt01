@@ -48,17 +48,12 @@ export class UserComponent {
   }
 
   createUser() {
-    /*const dialogRef = this.dialog.open(AddEditUserModelComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      
-    });*/
-    this.router.navigate(["/rental/addedituser"]);
+    this.router.navigate(["/rental/add-user"]);
   }
 
   editUser(data: User){
-    //this.rentalService.inputAddData = data;
-    this.router.navigate(["/rental/addedituser"]);
+    let url = "/rental/edit-user/"+ data.userId as any;
+    this.router.navigateByUrl(url);
   }
 
   delete(userId: number) {

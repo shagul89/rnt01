@@ -1,5 +1,6 @@
 package com.rental.product.mapper;
 
+import com.rental.product.enumeration.AddressType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class AddressVO implements Serializable {
     private String postalCode;
     private String addressLine1;
     private String addressLine2;
+    private AddressType addressType;
     private String country;
     private Set<UserVO> users = new HashSet<>();
     private Set<SupplierVO> supplier = new HashSet<>();
