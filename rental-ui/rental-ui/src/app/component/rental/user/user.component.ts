@@ -53,12 +53,12 @@ export class UserComponent {
     dialogRef.afterClosed().subscribe(result => {
       
     });*/
-    this.router.navigate(["/main/admin/addedituser"]);
+    this.router.navigate(["/rental/addedituser"]);
   }
 
   editUser(data: User){
     //this.rentalService.inputAddData = data;
-    this.router.navigate(["/main/admin/addedituser"]);
+    this.router.navigate(["/rental/addedituser"]);
   }
 
   delete(userId: number) {
