@@ -34,7 +34,9 @@ h1.nav-app-name {
 }
 
 .active {
-  background-image: linear-gradient(195deg, #EC407A 0%, #D81B60 100%);
+  /*background-image: linear-gradient(195deg, #EC407A 0%, #D81B60 100%);*/
+  --tw-bg-opacity: 1;
+  background-color: rgb(44 106 229 / var(--tw-bg-opacity));
   border-radius: 5px;
 }
 
@@ -42,4 +44,26 @@ mat-toolbar{
   background-image: linear-gradient(195deg, #fff 0%, #fff 100%);
   color: black;
   border-bottom: 1px solid #dbdbdb;
+}
+.mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label{
+  font-family: "Nunito Sans", sans-serif !important;
+}
+.mdc-list-item.mdc-list-item--with-one-line{
+    transition: all linear .3s;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-radius: 0;
+    padding: 1rem 1.25rem;
+    font-size: 15px;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(69 71 81 / var(--tw-text-opacity));
+}
+.inventual-logo{
+    background-image: url(../../../../assets/logo/IconRental.png);
+    background-position: center;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-size: 186px 92px;
 }

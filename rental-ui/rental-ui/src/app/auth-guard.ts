@@ -11,7 +11,6 @@ import { AuthService } from './component/auth/auth-service';
 export const AuthGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const authService = inject(AuthService);
     const router = inject(Router);
-    debugger
     return authService.isLoggedIn
         .pipe(
             take(1),
