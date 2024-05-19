@@ -1,9 +1,9 @@
-import { Component,  ViewChild, ViewEncapsulation  } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AddEditAddressComponent } from '../../../common/add-edit-address/add-edit-address.component';
 import { User } from '../../../model/user';
-import { Router  } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RentalService } from '../../rental-service';
 
 
@@ -19,24 +19,21 @@ export class AddEditUserModelComponent {
 
   isEdit = false;
   form: any;
+  userId:any;
   user: User = new User;
   userTypes = ['MANAGER', 'EMPLOYEE', 'CASHIER', 'ADMIN', 'SUPER_ADMIN'];
   status = ['ACTIVE', 'DEACTIVE'];
   gender = ['MALE', 'FEMALE'];
+  addressList = [];
 
-  constructor( private rentalService: RentalService, private router: Router,
-     private toastr: ToastrService, private formBuilder: FormBuilder) {
-    /*if (data && data.user) {
-      this.user = data.user;
-      this.isEdit = true;
-    }*/
+  constructor(private rentalService: RentalService, private router: Router,
+    private toastr: ToastrService, private formBuilder: FormBuilder, private route : ActivatedRoute) {
+      this.userId = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
-    let inputData = {};
-    if(inputData && Object.keys(inputData).length !== 0){
-    this.user= Object.assign(this.user, inputData);
-    this.isEdit = true;
+    if(this.userId){
+      this.isEdit = true;
     }
 
     this.form = this.formBuilder.group({
@@ -45,30 +42,27 @@ export class AddEditUserModelComponent {
       email: ['', [Validators.email, Validators.required]],
       status: ['', Validators.required],
       userType: ['', Validators.required],
-      gender: ['', Validators.required],
-      contactnumber: ['', Validators.required]
+      gender: ['', Validators.required]
     });
-    if (this.isEdit) {
-      this.form.controls.firstName.patchValue(this.user.firstName);
-      this.form.controls.lastName.patchValue(this.user.lastName);
-      this.form.controls.email.patchValue(this.user.email);
-      this.form.controls.status.patchValue(this.user.status);
-      this.form.controls.userType.patchValue(this.user.userType);
-      this.form.controls.gender.patchValue(this.user.gender);
-      this.form.controls.contactnumber.patchValue(this.user.contactnumber);
-    }
-  }
 
-  ngAfterViewInit() {
     if (this.isEdit) {
-      setTimeout(() => {
-        //this.addressComponenet.initAddress(this.user.userAddress);
-      }, 0);
+      this.getUserById();
+    }else{
+      this.form.controls.status.patchValue("ACTIVE");
     }
   }
 
   get f() {
     return this.form.formcontrols;
+  }
+
+  convertUserToForm(){
+    this.form.controls.firstName.patchValue(this.user.firstName);
+    this.form.controls.lastName.patchValue(this.user.lastName);
+    this.form.controls.email.patchValue(this.user.email);
+    this.form.controls.status.patchValue(this.user.status);
+    this.form.controls.userType.patchValue(this.user.userType);
+    this.form.controls.gender.patchValue(this.user.gender);
   }
 
   convertFormToUser() {
@@ -78,21 +72,21 @@ export class AddEditUserModelComponent {
     this.user.userType = this.form.get('userType').value;
     this.user.status = this.form.get('status').value;
     this.user.gender = this.form.get('gender').value;
-    this.user.contactnumber = this.form.get('contactnumber').value;
-    //this.user.userAddress = this.addressComponenet.addressList;
+    this.user.userAddress = this.addressComponenet.addressList;
   }
 
   submit() {
     if (this.form.invalid) {
       return;
     }
-    /*if (this.addressComponenet.isError) {
+    if (this.addressComponenet.isError) {
       return;
-    }*/
+    }
     this.convertFormToUser();
-    if(this.isEdit){
+    if (this.isEdit) {
       this.update();
     } else {
+      this.user.status = "ACTIVE";
       this.save();
     }
   }
@@ -101,12 +95,23 @@ export class AddEditUserModelComponent {
     this.rentalService.saveUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data created successfully");
-        this.user= {} as User;
-        //this.addressComponenet.addressList =[];
-        //this.dialog.close();
+        this.cancel();
       },
       error: (error) => {
         this.toastr.error("User data failed to create");
+      }
+    });
+  }
+
+  getUserById() {
+    this.rentalService.getUserById(this.userId).subscribe({
+      next: (data) => {
+        this.user = data.outputData.responseData;
+        this.addressList = this.user.userAddress as any;
+        this.convertUserToForm();
+      },
+      error: (error) => {
+        this.toastr.error("Failed to get user by id");
       }
     });
   }
@@ -115,12 +120,16 @@ export class AddEditUserModelComponent {
     this.rentalService.updateUser(this.user).subscribe({
       next: (data) => {
         this.toastr.success("User data updated successfully");
-        //this.dialog.close();
+        this.cancel();
       },
       error: (error) => {
         this.toastr.success("User data failed to update");
       }
     });
+  }
+
+  cancel() {
+    this.router.navigateByUrl("/rental/user");
   }
 
 }

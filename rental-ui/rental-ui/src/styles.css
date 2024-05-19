@@ -32,14 +32,6 @@ body {
     font-size: 13px !important;
 }
 
-.mat-accent {
-    background: #EC407A !important;
-    border-radius: 5px !important;
-    color: #fff !important;
-    font-size: 13px !important;
-    border: 1px solid #b0b0b0 !important;
-}
-
 .mat-basic {
     border: 1px solid #b0b0b0 !important;
     background: #fdfdfd !important;

@@ -107,7 +107,7 @@ public class UserServiceImpl implements IUserService {
             if(StringUtils.isBlank(userVO.getLastName())){
                 error = error + " User Last Name";
             }
-            if(StringUtils.isBlank(userVO.getUserType().name())){
+            if(userVO.getUserType().isEmpty()){
                 error = error + " User Type";
             }
         }catch (Exception e){
@@ -134,23 +134,21 @@ public class UserServiceImpl implements IUserService {
                 }
             });
 
-            if(!map.containsKey("userAddressError")){
-               if(userVO.getUserType().name().equalsIgnoreCase(UserType.SUPER_ADMIN.name())){
-                    roleEntities.addAll(roleRepository.findAll());
-               } else {
-                   UserVO finalUserVO = userVO;
-                   roleEntities.addAll(roleRepository.findAll().stream().filter(e -> e.getName().name().equalsIgnoreCase(finalUserVO.getUserType().name())).toList());
-               }
+            boolean isSuperAdmin = userVO.getUserType().stream().anyMatch(e -> e.equalsIgnoreCase(UserType.SUPER_ADMIN.name()));
+            if(isSuperAdmin){
+                roleEntities.addAll(roleRepository.findAll());
+            } else {
+                for(String userType : userVO.getUserType()){
+                    roleEntities.addAll(roleRepository.findAll().stream().filter(e -> e.getName().name().equalsIgnoreCase(userType)).toList());
+                }
             }
 
-            if(!map.containsKey("userAddressError") && !map.containsKey("roleError")){
-                UserEntity userEntity = mapper.convertValue(userVO, UserEntity.class);
-                userEntity.setRoles(roleEntities);
-                userEntity.setUserAddress(addressEntities);
-                userEntity = userRepository.save(userEntity);
-                userVO.setUserId(userEntity.getUserId());
-                map.put("success", userVO);
-            }
+            UserEntity userEntity = mapper.convertValue(userVO, UserEntity.class);
+            userEntity.setRoles(roleEntities);
+            userEntity.setUserAddress(addressEntities);
+            userEntity = userRepository.save(userEntity);
+            userVO.setUserId(userEntity.getUserId());
+            map.put("success", userVO);
         }catch (Exception e){
             throw new RentalException(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e.getStackTrace());
         }

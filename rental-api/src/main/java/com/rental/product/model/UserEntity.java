@@ -2,11 +2,12 @@ package com.rental.product.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.rental.product.enumeration.UserStatus;
 
-import com.rental.product.enumeration.UserType;
+import com.rental.product.util.StringListConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,9 @@ public class UserEntity extends AuditorEntity implements Serializable {
 
 	@Column(name = "EMAIL")
 	private String email;
+
+	@Column(name = "GENDER")
+	private String gender;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "STATUS")
@@ -43,9 +47,9 @@ public class UserEntity extends AuditorEntity implements Serializable {
 	@Column(name = "USER_NAME")
 	private String userName;
 
-	@Enumerated(EnumType.STRING)
 	@Column(name = "USER_TYPE")
-	private UserType userType;
+	@Convert(converter = StringListConverter.class)
+	private List<String> userType;
 
 	@Column(name = "STORE_NAME")
 	private Long activeStore;
@@ -59,5 +63,6 @@ public class UserEntity extends AuditorEntity implements Serializable {
 	@JoinTable(name = "RNT_USER_ADDRESS", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "ADDRESS_ID") })
 	private Set<AddressEntity> userAddress = new HashSet<>();
+
 
 }

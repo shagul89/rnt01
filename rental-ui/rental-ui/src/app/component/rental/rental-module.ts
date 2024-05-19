@@ -27,6 +27,7 @@ import { UserComponent } from './user/user.component';
 import { AddEditUserModelComponent } from './user/add-edit-user-model/add-edit-user-model.component';
 import { RentalRoutingModule } from './rental-routes';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSortModule,
     MatDialogModule,
     MatIconModule,
-    RentalRoutingModule
+    RentalRoutingModule,
+    MatCheckboxModule
   ],
   exports:[],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

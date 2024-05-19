@@ -1,12 +1,12 @@
 package com.rental.product.mapper;
 
 import com.rental.product.enumeration.UserStatus;
-import com.rental.product.enumeration.UserType;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -24,7 +24,8 @@ public class UserVO implements Serializable {
     private UserStatus status;
     private String password;
     private String userName;
-    private UserType userType;
+    private String gender;
+    private List<String> userType;
     private Set<RoleVO> roles = new HashSet<>();
     private Set<AddressVO> userAddress = new HashSet<>();
     private String createdBy;

@@ -11,4 +11,5 @@ export class Address {
     officeNumber!: string;
     alternateMobileNumber!: string;
     index!: number;
+    addressType!: string;
 }
