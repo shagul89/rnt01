@@ -14,15 +14,20 @@ export class AuthService {
 
     baseUrl: string = `${environment.apiUrl}rnt/`;
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient, private router: Router) {
+        if (typeof sessionStorage !== "undefined") {
+            this.loggedIn.next(sessionStorage.getItem("token") ? true : false);
+        }
+     }
 
     get isLoggedIn() {
-        return this.loggedIn.asObservable(); // {2}
+        return this.loggedIn.asObservable();
     }
 
     logout() {
         if (typeof sessionStorage !== "undefined") {
             sessionStorage.removeItem("token");
+            this.loggedIn.next(false);
             this.router.navigate(["/auth/login"]);
         }
     }
