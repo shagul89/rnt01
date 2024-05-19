@@ -1,7 +1,7 @@
 <div class="nav-container">
     <mat-toolbar color="primary" class="example-toolbar">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <h1 class="nav-app-name">Responsive App</h1>
+        <h1 class="inventual-logo" style="width: 170px;"></h1>
 
         <span class="fill-remaining-space"></span>
         <button mat-icon-button>
@@ -17,11 +17,7 @@
     <mat-sidenav-container class="nav-sidenav-container">
         <mat-sidenav #snav mode="side" opened [fixedInViewport]="options.value.fixed"
             [fixedTopGap]="options.value.top" [fixedBottomGap]="options.value.bottom">
-            <div class="inventual-logo">
-                <!-- <a class="inline-block">
-                    <img src="../../../../assets/logo/IconRental.png" alt="logo not found" >
-                </a> -->
-            </div>
+            
             <mat-nav-list>
                 <span *ngFor="let item of menu">
                     <mat-list-item (click)="selectedMenu(item)" [routerLink]="[item.route]" [ngClass]="{'active':item.defaultSelected}" >
