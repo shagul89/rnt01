@@ -26,6 +26,7 @@ import { RemoveSpecialCharPipe } from '../common/directive/remove-special-char';
 import { UserComponent } from './user/user.component';
 import { AddEditUserModelComponent } from './user/add-edit-user-model/add-edit-user-model.component';
 import { RentalRoutingModule } from './rental-routes';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RentalRoutingModule } from './rental-routes';
     AddEditUserModelComponent,
     AddEditAddressComponent,
     RemoveSpecialCharPipe,
+    DashboardComponent,
     NumberOnlyDirective,
     AddEditConfigModelComponent
   ],

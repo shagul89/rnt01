@@ -4,7 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenuModule } from './component/menu/menu-module';
 import { Observable } from 'rxjs';
-import { AuthService } from './component/rental/auth-service';
+import { AuthService } from './component/auth/auth-service';
 
 @Component({
   selector: 'app-root',
