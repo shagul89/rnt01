@@ -19,17 +19,7 @@ export class SideNavComponent {
 
   menu: NavItem[] =[];
   constructor(private _formBuilder: FormBuilder, private menuService: MenuService, private authService: AuthService) {
-    if (typeof window !== "undefined") {
-      let path = window.location.pathname as any;
-      this.menu.forEach(e => {
-        if (path === e.route) {
-          e.defaultSelected = true;
-          this.activeMenu = e;
-        } else {
-          e.defaultSelected = false
-        }
-      })
-    }
+
   }
 
 
@@ -41,6 +31,17 @@ export class SideNavComponent {
     this.menuService.getAllMenu().subscribe({
       next: (data) => {
         this.menu = data.outputData.responseData;
+        if (typeof window !== "undefined") {
+          let path = window.location.pathname as any;
+          this.menu.forEach(e => {
+            if (path === e.route) {
+              e.defaultSelected = true;
+              this.activeMenu = e;
+            } else {
+              e.defaultSelected = false
+            }
+          })
+        }
         this.options = this._formBuilder.group({
           bottom: 0,
           fixed: false,

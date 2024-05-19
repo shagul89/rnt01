@@ -58,7 +58,7 @@
                             <div  class="inventual-quick-dropdown inventual-quick-pro-dropdown" [ngClass]="{'promenu-enable': profileShortcutActive}">
                                <ul >
                                 <li ><a  href="/profile"><mat-icon>account_circle</mat-icon>Profle</a></li>
-                                <li ><a  href="#"><mat-icon>exit_to_app</mat-icon>Logout</a></li>
+                                <li (click)="logout()"><a  href="#"><mat-icon>exit_to_app</mat-icon>Logout</a></li>
                                </ul>
                             </div>
                          </div>

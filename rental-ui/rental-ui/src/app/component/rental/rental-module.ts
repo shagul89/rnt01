@@ -25,6 +25,7 @@ import { NumberOnlyDirective } from '../common/directive/number-only';
 import { RemoveSpecialCharPipe } from '../common/directive/remove-special-char';
 import { UserComponent } from './user/user.component';
 import { AddEditUserModelComponent } from './user/add-edit-user-model/add-edit-user-model.component';
+import { RentalRoutingModule } from './rental-routes';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AddEditUserModelComponent } from './user/add-edit-user-model/add-edit-u
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    RentalRoutingModule
   ],
   exports:[],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

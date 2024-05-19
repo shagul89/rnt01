@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Login } from '../../model/login';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth-service';
@@ -59,7 +58,7 @@ export class LoginComponent implements OnInit {
         if (typeof sessionStorage !== "undefined") {
           sessionStorage.setItem('token', data.accessToken);
           this.toastr.success('Login Successfully');
-          this.router.navigate(["/rental/dashboard"]);
+          this.router.navigate(["/dashboard"]);
           this.authsService.loggedIn.next(true)
         }
       },
