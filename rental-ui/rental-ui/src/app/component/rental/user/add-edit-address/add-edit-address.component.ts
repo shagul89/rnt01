@@ -13,6 +13,8 @@ export class AddEditAddressComponent {
   @Input() addressList: Address[] = [];
   isError = false;
   @Input() isEdit = false;
+  isChecked :boolean =false;
+  isDisabled :boolean =false;
 
   constructor(private toastr: ToastrService) {
 
@@ -48,6 +50,24 @@ export class AddEditAddressComponent {
     });
     if (this.isError) {
       this.toastr.error("Please add all the mandatory address fields");
+    }
+  }
+
+  checkboxcChanged(){
+    if(this.isChecked === true){
+      if(this.addressList[0].addressType ==="PERMANENT"){
+        let copiedObj = {...this.addressList[0]};
+        if(this.addressList[1].addressType ==="TEMPORARY"){
+         this.addressList[1]=copiedObj;
+         this.addressList[1].addressType="TEMPORARY";
+        }
+      }
+    }else{
+      if(this.addressList[1].addressType ==="TEMPORARY"){
+        let temporary = {} as Address;
+        temporary.addressType = "TEMPORARY";
+        this.addressList[1] =temporary;
+       }
     }
   }
 
