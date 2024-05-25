@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { Address } from '../../model/address';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Address } from '../../../model/address';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-edit-address',
   templateUrl: './add-edit-address.component.html',
-  styleUrl: './add-edit-address.component.css'
+  styleUrl: './add-edit-address.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AddEditAddressComponent {
 

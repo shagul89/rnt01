@@ -126,3 +126,9 @@ mat-header-row {
   overflow: hidden;
   vertical-align: middle;
 }
+.mat-mdc-checkbox label {
+  padding-left: 25px !important;
+}
+.fullWidth{
+  display:flex;
+}
