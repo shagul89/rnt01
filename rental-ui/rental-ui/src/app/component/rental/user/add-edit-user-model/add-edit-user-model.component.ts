@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AddEditAddressComponent } from '../../../common/add-edit-address/add-edit-address.component';
+import { AddEditAddressComponent } from '../add-edit-address/add-edit-address.component';
 import { User } from '../../../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalService } from '../../rental-service';

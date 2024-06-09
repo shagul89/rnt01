@@ -21128,6 +21128,35 @@ img,svg {
     min-height: 0px;
     padding: 0;
   }
+  .inventual-input-field-style textarea.mat-mdc-input-element {
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+    height: 3rem;
+    width: 100%;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    --tw-border-opacity: 1;
+    border-color: rgb(239 240 242 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(252 252 252 / var(--tw-bg-opacity));
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-family: Nunito Sans, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 46px;
+    --tw-text-opacity: 1;
+    color: rgb(97 97 97 / var(--tw-text-opacity));
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .inventual-input-field-style textarea.mat-mdc-input-element:focus {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
   .inventual-input-field-style input.mat-mdc-input-element {
     margin: 0;
     box-sizing: border-box;

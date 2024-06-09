@@ -20,7 +20,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { AddEditCustomerModelComponent } from './customer/add-edit-customer-model/add-edit-customer-model.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { AddEditConfigModelComponent } from './configuration/add-edit-config-model/add-edit-config-model.component';
-import { AddEditAddressComponent } from '../common/add-edit-address/add-edit-address.component';
+import { AddEditAddressComponent } from './user/add-edit-address/add-edit-address.component';
 import { NumberOnlyDirective } from '../common/directive/number-only';
 import { RemoveSpecialCharPipe } from '../common/directive/remove-special-char';
 import { UserComponent } from './user/user.component';
