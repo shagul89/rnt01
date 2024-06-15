@@ -71,7 +71,8 @@ export class RentalService {
   }
 
   getAllProduct(): Observable<any> {
-    return this.http.get(this.baseUrl + "user/get-all-product");
+    //return this.http.get(this.baseUrl + "user/get-all-product");
+    return this.http.get("assets/data/product.json");
   }
 
   getProductById(productId: number): Observable<any> {

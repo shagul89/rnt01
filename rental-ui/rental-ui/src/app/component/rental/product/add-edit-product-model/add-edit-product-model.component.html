@@ -1,1 +1,190 @@
-<p>add-edit-product-model works!</p>
+<div class="inventual-addsupplier-area bg-white p-5 custom-shadow rounded-8 mb-5">
+    @if(isEdit) {
+    <h4 class="text-[20px] font-bold text-black mb-3">Edit User</h4>
+    } @else {
+    <h4 class="text-[20px] font-bold text-black mb-3">Add New User</h4>
+    }
+
+    <div class="grid grid-cols-12 gap-x-7 sm:gap-x-0">
+        <div class="col-span-9 lg:col-span-8 sm:col-span-12 md:col-span-12">
+        <div class="grid grid-cols-12 gap-x-7 sm:gap-x-0"> 
+
+        <div class="col-span-8 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Product Name</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="text" autocomplete="off" formControlName="productName"
+                      placeholder="Enter the Product Name">
+                  </mat-form-field>
+                </div>
+              </div>
+        </div>
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Product Code</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="number" autocomplete="off" formControlName="code"
+                      placeholder="Enter the Product Code">
+                  </mat-form-field>
+                </div>
+              </div>
+        </div> 
+        <div class="col-span-4 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">Category</h5>
+              <div class="inventual-select-field-style">
+                <mat-form-field>
+                  <mat-select formControlName="category" placeholder="Select Category">
+                    @for (g of category; track g) {
+                    <mat-option [value]="g">{{g | titlecase }}</mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+      
+              </div>
+            </div>
+        </div>
+
+        <div class="col-span-4 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+              <h5 class="text-[15px] text-black font-semibold mb-3">Sub Category</h5>
+              <div class="inventual-select-field-style">
+                <mat-form-field>
+                  <mat-select formControlName="subCategory" placeholder="Select Sub Category">
+                    @for (g of subCategory; track g) {
+                    <mat-option [value]="g">{{g | titlecase }}</mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+      
+              </div>
+            </div>
+        </div>
+ 
+        <div class="col-span-4 md:col-span-6 sm:col-span-12">
+        <div class="inventual-select-field mb-5">
+            <h5 class="text-[15px] text-black font-semibold mb-3">Brand</h5>
+            <div class="inventual-select-field-style">
+            <mat-form-field>
+                <mat-select formControlName="brand" placeholder="Select Brand">
+                @for (g of brand; track g) {
+                <mat-option [value]="g">{{g | titlecase }}</mat-option>
+                }
+                </mat-select>
+            </mat-form-field>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-span-4 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Product Unit</h5>
+                <div class="inventual-select-field-style">
+                <mat-form-field>
+                    <mat-select formControlName="unit" placeholder="Select Unit">
+                    @for (g of unit; track g) {
+                    <mat-option [value]="g">{{g | titlecase }}</mat-option>
+                    }
+                    </mat-select>
+                </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Varient</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="text" autocomplete="off" formControlName="varient"
+                      placeholder="Enter the Product Varient">
+                  </mat-form-field>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Stock</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="number" autocomplete="off" formControlName="stock"
+                      placeholder="Enter the Stock">
+                  </mat-form-field>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Product Price</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="number" autocomplete="off" formControlName="productPrice"
+                      placeholder="Enter the Product Price">
+                  </mat-form-field>
+                  
+                </div>
+              </div>
+        </div> 
+
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Tax</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="number" autocomplete="off" formControlName="tax"
+                      placeholder="Enter the Tax">
+                  </mat-form-field>
+                  <figure class="h-12 w-12 text-[15px] text-body bg-gray text-center leading-[46px] border border-solid border-border absolute top-0 end-0 inline-block">%</figure>
+                </div>
+              </div>
+        </div> 
+
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Discount</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="number" autocomplete="off" formControlName="discount"
+                      placeholder="Enter the discount">
+                  </mat-form-field>
+                  <figure class="h-12 w-12 text-[15px] text-body bg-gray text-center leading-[46px] border border-solid border-border absolute top-0 end-0 inline-block">%</figure>
+                </div>
+              </div>
+        </div>
+        
+        <div class="col-span-4 lg:col-span-6 md:col-span-6 sm:col-span-12">
+            <div class="inventual-select-field mb-5">
+                <h5 class="text-[15px] text-black font-semibold mb-3">Quantity</h5>
+                <div class="inventual-input-field-style">
+                  <mat-form-field class="w-full">
+                    <input matInput type="number" autocomplete="off" formControlName="quantity"
+                      placeholder="Enter the Quantity">
+                  </mat-form-field>
+                  
+                </div>
+              </div>
+        </div>
+        
+
+        </div>
+        </div>
+
+        <div class="col-span-3 lg:col-span-4 sm:col-span-12 md:col-span-12">
+
+        <div class="inventual-product-image-upload rounded-lg">
+            <input id="ImageContent" type="file" accept="image/*" required="" multiple="" class="bg-primary/5">
+            <label for="ImageContent" class="inventual-product-image-upload-inner">
+                <div class="flex flex-col items-center gap-5">
+                    <img src="../../../../assets/img/icon/drag.png" alt="icon not found">
+                    <h4>Drop product image here</h4>
+                    <h4>Or</h4>
+                    <button type="button" class="inventual-btn primary-btn">Browse File</button><span>Allowed JPEG, JPG &amp; PNG format | Max 100 mb</span></div></label><div class="inventual-product-image-uploaded-wrap w-full"></div><span class="absolute top-4 start-0 w-full text-[14px] ps-5 pb-2 font-medium text-body block">0 item selected</span>
+        </div>
+
+        </div>
+    </div>
+</div>

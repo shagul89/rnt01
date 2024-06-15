@@ -48,6 +48,7 @@ mat-toolbar{
 .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label{
   font-family: "Nunito Sans", sans-serif !important;
 }
+
 .mdc-list-item.mdc-list-item--with-one-line{
     transition: all linear .3s;
     display: flex;
