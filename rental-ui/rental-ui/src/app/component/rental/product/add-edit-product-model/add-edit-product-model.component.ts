@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './add-edit-product-model.component.css'
 })
 export class AddEditProductModelComponent {
-
+  isEdit = false;
+  category = ['Laptop','Mobile','Electronics'];
+  brand = ['Dell', 'Asus', 'Hp','Lenovo'];
+  unit = ['Kilogram','Pieces','Meter'];
+  subCategory=['Cloth','Bag','Food'];
 }

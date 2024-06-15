@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ProductComponent } from './product/product.component';
+import { AddEditProductModelComponent } from './product/add-edit-product-model/add-edit-product-model.component';
 import { OrderComponent } from './order/order.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -11,6 +12,7 @@ import { CustomerComponent } from './customer/customer.component';
 
 const rentalRoutes: Routes = [
     { path: 'product', component: ProductComponent , canActivate: [AuthGuard] },
+    { path: 'add-product', component: AddEditProductModelComponent, canActivate: [AuthGuard] },
     { path: 'order', component: OrderComponent, canActivate: [AuthGuard] },
     { path: 'customer', component: CustomerComponent, canActivate: [AuthGuard] },
     { path: 'config', component: ConfigurationComponent, canActivate: [AuthGuard] },
